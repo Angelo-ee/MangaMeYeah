@@ -596,6 +596,11 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         _lastEvaluatedConnectedIndex = _currentIndex;
         _activeConnectedOverride = null;
 
+        if (!_settings.AutoDetectConnectedImages && _settings.SuppressConnectedImagePrompt)
+        {
+            return;
+        }
+
         var detected = ConnectedImageDetector.DetectConnectedGroup(_imageFiles, _currentIndex, _cacheEngine, _settings);
         if (detected == null)
         {
@@ -2721,10 +2726,17 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             case 40206: // 縦横2×2枚表示
                 SetPageDisplayMode(PageDisplayMode.Grid2x2, "縦横2×2枚表示 (4枚)");
                 return;
-            case 40210: // 自動連結画像検出
+            case 40210: // 連結画像検出
                 _settings.AutoDetectConnectedImages = !_settings.AutoDetectConnectedImages;
+                if (!_settings.AutoDetectConnectedImages)
+                {
+                    _settings.SuppressConnectedImagePrompt = true;
+                }
+                _settings.Save();
+                UpdateMenuCheckStates();
+                _activeConnectedOverride = null;
                 _lastEvaluatedConnectedIndex = -1;
-                ShowOsd(_settings.AutoDetectConnectedImages ? "自動連結画像検出: ON" : "自動連結画像検出: OFF");
+                ShowOsd(_settings.AutoDetectConnectedImages ? "連結画像検出: ON" : "連結画像検出: OFF");
                 RenderCurrentPage();
                 return;
             case 278: // 左開き
