@@ -27,12 +27,13 @@ public enum SpreadDirection
 public enum ScaleMode
 {
     FixedScale = 0,         // 倍率固定 (40100)
-    FitEither = 1,          // 縦横どちらか合わせる (40101)
+    FitWidth = 1,           // 幅に合わせる (40101) / 旧「縦横どちらか合わせる」を置き換え。INI の値 1 はそのまま流用
     FitWindow = 2,          // ウインドウサイズに合わせる (40102)
     OriginalSize = 3,       // 原寸サイズで表示 (40103)
     FitWindowToImage = 4,   // 画像サイズに合わせる (40104)
     SpecifiedScale = 5,     // 指定スケール、サイズで表示 (40105)
-    AlignHeightTwoPage = 6  // 縦サイズを揃える(複数枚表示用) (40106)
+    AlignHeightTwoPage = 6, // 縦サイズを揃える(複数枚表示用) (40106)
+    FitHeight = 7           // 高さに合わせる (40108)
 }
 
 public enum InterpolationFilter

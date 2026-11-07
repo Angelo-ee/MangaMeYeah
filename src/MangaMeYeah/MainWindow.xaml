@@ -135,7 +135,8 @@
                     <MenuItem Uid="CTX_40210" Header="拼接图像检测(_C)" Tag="拼接图像检测" Click="MenuItem_Click" IsCheckable="True" />
                 </MenuItem>
                 <MenuItem Header="缩放模式(_S)">
-                    <MenuItem Uid="CTX_40101" Header="适应宽或高" Tag="适应宽或高" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_40101" Header="自动适应宽" Tag="自动适应宽" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_40108" Header="自动适应高" Tag="自动适应高" Click="MenuItem_Click" />
                     <MenuItem Uid="CTX_40102" Header="适应窗口大小" Tag="适应窗口大小" Click="MenuItem_Click" />
                     <MenuItem Uid="CTX_40103" Header="按原始尺寸显示" Tag="按原始尺寸显示" Click="MenuItem_Click" />
                     <MenuItem Uid="CTX_40104" Header="适应图像大小" Tag="适应图像大小" Click="MenuItem_Click" />
@@ -592,7 +593,8 @@
                 <MenuItem Uid="MAIN_40210" Header="拼接图像检测(_C)" Tag="拼接图像检测" Click="MenuItem_Click" IsCheckable="True" />
             </MenuItem>
             <MenuItem Header="缩放模式(_S)">
-                <MenuItem Uid="MAIN_40101" Header="适应宽或高" Tag="适应宽或高" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40101" Header="自动适应宽" Tag="自动适应宽" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40108" Header="自动适应高" Tag="自动适应高" Click="MenuItem_Click" />
                 <MenuItem Uid="MAIN_40102" Header="适应窗口大小" Tag="适应窗口大小" Click="MenuItem_Click" />
                 <MenuItem Uid="MAIN_40103" Header="按原始尺寸显示" Tag="按原始尺寸显示" Click="MenuItem_Click" />
                 <MenuItem Uid="MAIN_40104" Header="适应图像大小" Tag="适应图像大小" Click="MenuItem_Click" />

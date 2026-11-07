@@ -7,7 +7,7 @@ public enum GestureAction
     None = 0,
     FullScreenToggle,
     AlignHeightTwoPage,
-    FitEither,
+    FitWidth,
     ThumbnailCustom,
     JumpForwardFixed,
     JumpBackwardFixed,
@@ -103,7 +103,7 @@ public sealed class MouseGestureEngine
         {
             "↑" => (GestureAction.FullScreenToggle, "切换全屏"),
             "↓" => (GestureAction.AlignHeightTwoPage, "统一高度 (用于双页显示)"),
-            "←" => (GestureAction.FitEither, "适应宽或高"),
+            "←" => (GestureAction.FitWidth, "自动适应宽"),
             "→" => (GestureAction.ThumbnailCustom, "缩略图显示 (自定义)"),
             "→→" => (GestureAction.JumpForwardFixed, "前进固定页数"),
             "←←" => (GestureAction.JumpBackwardFixed, "后退固定页数"),

@@ -851,7 +851,84 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         }
     }
 
+    // 自动适应宽 / 自动适应高：先按「完整装入窗口」算出基准布局，
+    // 再以整个布局为单位等比缩放到目标宽度或高度（超出的方向可滚动查看）。
     private List<(double Width, double Height)> CalculateMultiPageSlotSizes(
+        IReadOnlyList<CachedPageEntry> entries,
+        int rows,
+        int cols,
+        double viewW,
+        double viewH)
+    {
+        var sizes = CalculateContainSlotSizes(entries, rows, cols, viewW, viewH);
+        if (sizes.Count == 0 ||
+            _settings.ScaleMode is not (ScaleMode.FitWidth or ScaleMode.FitHeight))
+        {
+            return sizes;
+        }
+
+        var (layoutW, layoutH) = CalculateLayoutExtent(sizes, rows, cols);
+        if (layoutW <= 0 || layoutH <= 0) return sizes;
+
+        double factor = _settings.ScaleMode == ScaleMode.FitWidth
+            ? viewW / layoutW
+            : viewH / layoutH;
+
+        if (_settings.ShrinkOnly)
+        {
+            // 「只缩小不放大」时，最终显示尺寸不得超过原图尺寸
+            double maxFactor = double.MaxValue;
+            for (int k = 0; k < sizes.Count; k++)
+            {
+                double ow = Math.Max(1, entries[k].OriginalWidth);
+                double oh = Math.Max(1, entries[k].OriginalHeight);
+                double w = Math.Max(1, sizes[k].Width);
+                double h = Math.Max(1, sizes[k].Height);
+                maxFactor = Math.Min(maxFactor, Math.Min(ow / w, oh / h));
+            }
+            if (double.IsFinite(maxFactor)) factor = Math.Min(factor, maxFactor);
+        }
+
+        if (!double.IsFinite(factor) || factor <= 0 || Math.Abs(factor - 1.0) < 1e-6)
+        {
+            return sizes;
+        }
+
+        for (int k = 0; k < sizes.Count; k++)
+        {
+            sizes[k] = (Math.Max(1, sizes[k].Width * factor), Math.Max(1, sizes[k].Height * factor));
+        }
+        return sizes;
+    }
+
+    // 与 Grid 的 Auto 行/列一致：列宽取该列最大值、行高取该行最大值，再各自求和
+    private static (double Width, double Height) CalculateLayoutExtent(
+        IReadOnlyList<(double Width, double Height)> sizes,
+        int rows,
+        int cols)
+    {
+        int r = Math.Max(1, rows);
+        int c = Math.Max(1, cols);
+        var colWidths = new double[c];
+        var rowHeights = new double[r];
+
+        for (int k = 0; k < sizes.Count; k++)
+        {
+            int row = r == 1 ? 0 : Math.Min(r - 1, k / c);
+            int col = c == 1 ? 0 : Math.Min(c - 1, k % c);
+            colWidths[col] = Math.Max(colWidths[col], sizes[k].Width);
+            rowHeights[row] = Math.Max(rowHeights[row], sizes[k].Height);
+        }
+
+        double totalW = 0;
+        double totalH = 0;
+        foreach (double w in colWidths) totalW += w;
+        foreach (double h in rowHeights) totalH += h;
+        return (totalW, totalH);
+    }
+
+    // 基准布局：保持纵横比，把当前显示的所有页面完整收进窗口内
+    private List<(double Width, double Height)> CalculateContainSlotSizes(
         IReadOnlyList<CachedPageEntry> entries,
         int rows,
         int cols,
@@ -2249,8 +2326,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             case GestureAction.AlignHeightTwoPage:
                 ToggleAlignHeightTwoPageAndFixedScale();
                 break;
-            case GestureAction.FitEither:
-                SetScaleMode(ScaleMode.FitEither, "适应宽或高");
+            case GestureAction.FitWidth:
+                SetScaleMode(ScaleMode.FitWidth, "自动适应宽");
                 break;
             case GestureAction.ThumbnailCustom:
                 OpenThumbnailView(0, _settings.CustomThumbnailSize);
@@ -2523,7 +2600,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                     e.Handled = true;
                     break;
                 case Key.Z:
-                    SetScaleMode(ScaleMode.FitEither, "适应宽或高");
+                    SetScaleMode(ScaleMode.FitWidth, "自动适应宽");
                     e.Handled = true;
                     break;
                 case Key.X:
@@ -2631,7 +2708,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                     382 => _fullScreenMenuMode == 2,
                     172 => _isLoupeActive,
                     40100 => _settings.ScaleMode == ScaleMode.FixedScale,
-                    40101 => _settings.ScaleMode == ScaleMode.FitEither,
+                    40101 => _settings.ScaleMode == ScaleMode.FitWidth,
+                    40108 => _settings.ScaleMode == ScaleMode.FitHeight,
                     40102 => _settings.ScaleMode == ScaleMode.FitWindow,
                     40103 => _settings.ScaleMode == ScaleMode.OriginalSize,
                     40104 => _settings.ScaleMode == ScaleMode.FitWindowToImage,
@@ -2794,7 +2872,10 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 SetScaleMode(ScaleMode.FixedScale, $"固定倍率(默认) ({(int)Math.Round(_settings.FixedZoomFactor * 100)}%)");
                 return;
             case 40101:
-                SetScaleMode(ScaleMode.FitEither, "适应宽或高");
+                SetScaleMode(ScaleMode.FitWidth, "自动适应宽");
+                return;
+            case 40108:
+                SetScaleMode(ScaleMode.FitHeight, "自动适应高");
                 return;
             case 40102:
                 SetScaleMode(ScaleMode.FitWindow, "适应窗口大小");
