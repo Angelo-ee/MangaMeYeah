@@ -141,8 +141,13 @@
                                     <TextBlock Text="滚动兼翻页顺序:" VerticalAlignment="Center" Margin="0,0,8,0" />
                                     <RadioButton Content="上下优先" IsChecked="True" />
                                     <RadioButton Content="左右优先" />
-                                    <TextBlock Text="滚轮缓冲:" VerticalAlignment="Center" Margin="12,0,4,0" />
-                                    <TextBox Width="44" Text="2" />
+                                </WrapPanel>
+
+                                <WrapPanel Margin="0,2,0,4">
+                                    <TextBlock Text="滚轮缓冲:" VerticalAlignment="Center" Margin="0,0,4,0" />
+                                    <TextBox x:Name="WheelBoundaryBufferTextBox" Width="44" VerticalContentAlignment="Center" Text="2" TextChanged="SettingControl_Changed" />
+                                    <TextBlock Text="格 (0-9)" VerticalAlignment="Center" Margin="4,0,12,0" />
+                                    <TextBlock Text="滚到页/卷边界后需再滚动的格数；0 = 立即翻页。进入边界后的 250ms 惯性滚轮会被忽略。" VerticalAlignment="Center" Foreground="#666666" />
                                 </WrapPanel>
                             </StackPanel>
                         </GroupBox>

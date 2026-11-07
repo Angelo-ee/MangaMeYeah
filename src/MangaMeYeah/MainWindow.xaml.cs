@@ -698,6 +698,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     {
         if (_isRendering) return;
         _isRendering = true;
+        ResetWheelBoundary(); // 换页 / 重排版面后不残留上一页的边界累计
 
         try
         {
@@ -1158,6 +1159,81 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     private string? _cachedPrevSiblingFolder;
     private string? _cachedForFolderPath;
 
+    private long _lastBoundaryOsdTick;
+    private const int BoundaryOsdThrottleMs = 900;
+
+    // 滚轮边界缓冲：卷末/页末不再被一格惯性滚轮直接带走
+    private int _wheelBoundaryDirection;   // -1=向上越界, 0=无, +1=向下越界
+    private int _wheelBoundaryCount;
+    private long _wheelBoundaryEnteredAt;
+    private long _wheelBoundaryLastTick;
+    private const int WheelInertiaCooldownMs = 250; // 进入边界后的惯性尾波忽略时长
+    private const int WheelGestureResetMs = 1200;   // 超过此间隔视为一次新的滚动手势
+
+    /// <summary>卷首/卷末停住时的提示，带节流以免长按方向键或惯性滚轮反复刷屏。</summary>
+    private void ShowBoundaryHint(bool atEnd)
+    {
+        long now = Environment.TickCount64;
+        if (now - _lastBoundaryOsdTick < BoundaryOsdThrottleMs) return;
+        _lastBoundaryOsdTick = now;
+        ShowOsd(atEnd
+            ? "已是最后一页 · Ctrl+→ / 鼠标侧键 / 菜单 可切换到下一卷"
+            : "已是第一页 · Ctrl+← / 鼠标侧键 / 菜单 可切换到上一卷");
+    }
+
+    /// <summary>
+    /// 判断一次「越过页面边界」的滚轮事件是否允许触发翻页。
+    /// 规则：0 = 关闭缓冲(立即翻页)；否则进入边界后先忽略 250ms 惯性尾波，
+    /// 之后需再累计 WheelBoundaryBuffer 格主动滚轮才放行；间隔超过 1.2s 视为新手势重新累计。
+    /// </summary>
+    private bool ShouldWheelPassBoundary(int direction)
+    {
+        int buffer = Math.Clamp(_settings.WheelBoundaryBuffer, 0, 9);
+        if (buffer <= 0)
+        {
+            ResetWheelBoundary();
+            return true;
+        }
+
+        long now = Environment.TickCount64;
+        if (_wheelBoundaryDirection != direction)
+        {
+            _wheelBoundaryDirection = direction;
+            _wheelBoundaryCount = 0;
+            _wheelBoundaryEnteredAt = now;
+            _wheelBoundaryLastTick = now;
+        }
+
+        long sinceLast = now - _wheelBoundaryLastTick;
+        _wheelBoundaryLastTick = now;
+        if (sinceLast > WheelGestureResetMs)
+        {
+            _wheelBoundaryCount = 0;
+            _wheelBoundaryEnteredAt = now;
+        }
+
+        // 到达边界瞬间的惯性尾波：只吞事件并清零计数，不产生翻页
+        if (now - _wheelBoundaryEnteredAt < WheelInertiaCooldownMs)
+        {
+            _wheelBoundaryCount = 0;
+            return false;
+        }
+
+        _wheelBoundaryCount++;
+        if (_wheelBoundaryCount < buffer) return false;
+
+        ResetWheelBoundary();
+        return true;
+    }
+
+    private void ResetWheelBoundary()
+    {
+        _wheelBoundaryDirection = 0;
+        _wheelBoundaryCount = 0;
+        _wheelBoundaryEnteredAt = 0;
+        _wheelBoundaryLastTick = 0;
+    }
+
     private void UpdateSiblingFolderCache()
     {
         if (string.IsNullOrEmpty(_currentFolderPath) || _currentFolderPath == _cachedForFolderPath)
@@ -1323,32 +1399,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         }
         else
         {
-            if (_isTransitioningFolder) return;
-            _isTransitioningFolder = true;
-
-            try
-            {
-                string? nextFolder = _cachedNextSiblingFolder ?? (!string.IsNullOrEmpty(_currentFolderPath)
-                    ? ImageFolderService.GetSiblingFolder(_currentFolderPath, +1, _settings.FolderSort)
-                    : null);
-
-                if (nextFolder != null)
-                {
-                    ShowOsd($"正在切换到下一个文件夹: {Path.GetFileName(nextFolder)}");
-                    Mouse.OverrideCursor = Cursors.Wait;
-                    OpenPath(nextFolder, openAtLastPage: false);
-                    ShowOsd($"切换文件夹: {Path.GetFileName(nextFolder)}");
-                }
-                else
-                {
-                    ShowOsd("已是最后一页 (没有下一个文件夹)");
-                }
-            }
-            finally
-            {
-                Mouse.OverrideCursor = null;
-                _isTransitioningFolder = false;
-            }
+            // 卷末不再自动切换到并列文件夹/压缩包：滚轮惯性或连点曾导致「读着读着跳到别的卷」。
+            // 切卷只保留显式入口：Ctrl+→、鼠标侧键、菜单「下一个文件夹(压缩包)」。
+            ShowBoundaryHint(atEnd: true);
         }
     }
 
@@ -1357,32 +1410,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         if (_imageFiles.Count == 0) return;
         if (_currentIndex <= 0)
         {
-            if (_isTransitioningFolder) return;
-            _isTransitioningFolder = true;
-
-            try
-            {
-                string? prevFolder = _cachedPrevSiblingFolder ?? (!string.IsNullOrEmpty(_currentFolderPath)
-                    ? ImageFolderService.GetSiblingFolder(_currentFolderPath, -1, _settings.FolderSort)
-                    : null);
-
-                if (prevFolder != null)
-                {
-                    ShowOsd($"正在切换到上一个文件夹: {Path.GetFileName(prevFolder)}");
-                    Mouse.OverrideCursor = Cursors.Wait;
-                    OpenPath(prevFolder, openAtLastPage: true);
-                    ShowOsd($"切换文件夹: {Path.GetFileName(prevFolder)}");
-                }
-                else
-                {
-                    ShowOsd("已是第一页 (没有上一个文件夹)");
-                }
-            }
-            finally
-            {
-                Mouse.OverrideCursor = null;
-                _isTransitioningFolder = false;
-            }
+            // 卷首同样只停住并提示，显式切卷请用 Ctrl+← / 鼠标侧键 / 菜单。
+            ShowBoundaryHint(atEnd: false);
             return;
         }
 
@@ -2398,20 +2427,33 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             if (e.Delta > 0)
             {
                 if (ImageScrollViewer.VerticalOffset > 0)
+                {
+                    ResetWheelBoundary();
                     ImageScrollViewer.ScrollToVerticalOffset(Math.Max(0, ImageScrollViewer.VerticalOffset - step));
-                else
+                }
+                // 已到顶部：先走边界缓冲，防止一格惯性滚轮立刻翻页 / 跳卷
+                else if (ShouldWheelPassBoundary(-1))
+                {
                     PrevPage();
+                }
             }
             else
             {
                 if (ImageScrollViewer.VerticalOffset < ImageScrollViewer.ScrollableHeight)
+                {
+                    ResetWheelBoundary();
                     ImageScrollViewer.ScrollToVerticalOffset(Math.Min(ImageScrollViewer.ScrollableHeight, ImageScrollViewer.VerticalOffset + step));
-                else
+                }
+                else if (ShouldWheelPassBoundary(+1))
+                {
                     NextPage();
+                }
             }
         }
         else
         {
+            // 内容完整装下时滚轮本来就是「一格一页」，保持原手感；
+            // 卷末/卷首也只会停住提示，不再自动切卷。
             if (e.Delta > 0) PrevPage();
             else NextPage();
         }

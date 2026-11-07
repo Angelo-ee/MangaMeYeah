@@ -124,6 +124,7 @@ public class ViewerSettings
     public int WheelScrollStepX { get; set; } = 25;
     public int WheelScrollStepY { get; set; } = 25;
     public int ScrollUnitMode { get; set; } = 0; // 0=ウインドウサイズ(%), 1=画像サイズ(%), 2=固定値(pixel)
+    public int WheelBoundaryBuffer { get; set; } = 2; // 滚到页/卷边界后需再滚动的格数 (0=立即翻页, 1-9=缓冲格数)
 
     // 一般設定 1 (Tab 2: 読み込み設定)
     public int SubfolderReadMode { get; set; } = 1; // 0=確認ダイアログ, 1=サブフォルダも読み込む, 2=サブフォルダは読み込まない
@@ -289,6 +290,7 @@ public class ViewerSettings
         sb.AppendLine($"MouseWheelHScrollSpeed={WheelScrollStepX}");
         sb.AppendLine($"MouseWheelVScrollSpeed={WheelScrollStepY}");
         sb.AppendLine($"ScrollUnit={ScrollUnitMode}");
+        sb.AppendLine($"WheelBuffer={WheelBoundaryBuffer}");
         sb.AppendLine($"SubfolderReadMode={SubfolderReadMode}");
         sb.AppendLine($"IncludeFolderArchivesAsSubfolders={(IncludeFolderArchivesAsSubfolders ? 1 : 0)}");
         sb.AppendLine($"IncludeArchiveArchivesAsSubfolders={(IncludeArchiveArchivesAsSubfolders ? 1 : 0)}");
@@ -505,6 +507,10 @@ public class ViewerSettings
                     case "scrollunit":
                     case "scrollunitmode":
                         settings.ScrollUnitMode = ParseInt(val, settings.ScrollUnitMode);
+                        break;
+                    case "wheelbuffer":
+                    case "wheelboundarybuffer":
+                        settings.WheelBoundaryBuffer = Math.Clamp(ParseInt(val, settings.WheelBoundaryBuffer), 0, 9);
                         break;
                     case "subfolder":
                     case "subfolderreadmode":

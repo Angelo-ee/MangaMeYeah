@@ -44,6 +44,7 @@ public partial class PreferencesWindow : Window
         KeyScrollYTextBox.Text = _settings.KeyScrollStepY.ToString();
         WheelScrollXTextBox.Text = _settings.WheelScrollStepX.ToString();
         WheelScrollYTextBox.Text = _settings.WheelScrollStepY.ToString();
+        WheelBoundaryBufferTextBox.Text = Math.Clamp(_settings.WheelBoundaryBuffer, 0, 9).ToString();
 
         ScrollUnitWindowRadio.IsChecked = _settings.ScrollUnitMode == 0;
         ScrollUnitImageRadio.IsChecked = _settings.ScrollUnitMode == 1;
@@ -135,6 +136,8 @@ public partial class PreferencesWindow : Window
             _settings.WheelScrollStepX = Math.Clamp(wsx, 1, 2000);
         if (int.TryParse(WheelScrollYTextBox.Text, out int wsy))
             _settings.WheelScrollStepY = Math.Clamp(wsy, 1, 2000);
+        if (int.TryParse(WheelBoundaryBufferTextBox.Text, out int wheelBuffer))
+            _settings.WheelBoundaryBuffer = Math.Clamp(wheelBuffer, 0, 9);
 
         if (ScrollUnitWindowRadio.IsChecked == true) _settings.ScrollUnitMode = 0;
         else if (ScrollUnitImageRadio.IsChecked == true) _settings.ScrollUnitMode = 1;
