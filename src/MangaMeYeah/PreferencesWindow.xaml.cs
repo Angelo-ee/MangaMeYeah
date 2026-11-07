@@ -57,8 +57,10 @@ public partial class PreferencesWindow : Window
         IncludeFolderArchivesCheck.IsChecked = _settings.IncludeFolderArchivesAsSubfolders;
         IncludeArchiveArchivesCheck.IsChecked = _settings.IncludeArchiveArchivesAsSubfolders;
         InitialFolderTextBox.Text = _settings.InitialFolderPath;
-        OpenFromStartRadio.IsChecked = _settings.StartupOpenMode != 3;
-        OpenThumbnailRadio.IsChecked = _settings.StartupOpenMode == 3;
+        int openMode = _settings.StartupOpenMode is 2 or 3 ? _settings.StartupOpenMode : 1;
+        OpenFromStartRadio.IsChecked = openMode == 1;
+        OpenResumeRadio.IsChecked = openMode == 2;
+        OpenThumbnailRadio.IsChecked = openMode == 3;
         AddBlankFirstPageCheck.IsChecked = _settings.AddBlankFirstPage;
         AutoDetectConnectedCheck.IsChecked = _settings.AutoDetectConnectedImages;
         SuppressConnectedPromptCheck.IsChecked = _settings.SuppressConnectedImagePrompt;
@@ -150,7 +152,9 @@ public partial class PreferencesWindow : Window
         _settings.IncludeFolderArchivesAsSubfolders = IncludeFolderArchivesCheck.IsChecked == true;
         _settings.IncludeArchiveArchivesAsSubfolders = IncludeArchiveArchivesCheck.IsChecked == true;
         _settings.InitialFolderPath = InitialFolderTextBox.Text.Trim();
-        _settings.StartupOpenMode = OpenThumbnailRadio.IsChecked == true ? 3 : 1;
+        if (OpenResumeRadio.IsChecked == true) _settings.StartupOpenMode = 2;
+        else if (OpenThumbnailRadio.IsChecked == true) _settings.StartupOpenMode = 3;
+        else _settings.StartupOpenMode = 1;
         _settings.AddBlankFirstPage = AddBlankFirstPageCheck.IsChecked == true;
         _settings.AutoDetectConnectedImages = AutoDetectConnectedCheck.IsChecked == true;
         _settings.SuppressConnectedImagePrompt = SuppressConnectedPromptCheck.IsChecked == true;

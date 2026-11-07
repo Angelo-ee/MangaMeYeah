@@ -446,6 +446,10 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             return GetLastPageGroupStartIndex();
         }
 
+        // 「从开头打开」(1) 忽略断点记忆：打开任何文件夹 / 压缩包都从第 1 页开始。
+        // 2=从上次阅读位置打开、3=缩略图显示 才使用 ResumePagePerLocation。
+        if (_settings.StartupOpenMode == 1) return 0;
+
         if (_settings.ResumePagePerLocation.TryGetValue(locationKey, out string? lastFile) && !string.IsNullOrEmpty(lastFile))
         {
             int idx = _imageFiles.FindIndex(f =>
@@ -484,9 +488,15 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         }
     }
 
-    public void OpenPath(string path, bool openAtLastPage = false)
+    public void OpenPath(string path, bool openAtLastPage = false, bool preserveCurrentPosition = false)
     {
         SaveCurrentResumeState();
+
+        // 「更新」(菜单 281) 只重新扫描文件，不应受打开模式影响而跳回开头
+        string? preserveFilePath = (preserveCurrentPosition && _imageFiles.Count > 0 &&
+                                    _currentIndex >= 0 && _currentIndex < _imageFiles.Count)
+            ? _imageFiles[_currentIndex]
+            : null;
 
         if (path.Contains('|'))
         {
@@ -543,6 +553,13 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             return;
         }
 
+        // 重新扫描后按「当前显示的文件」恢复位置，文件被删除时才回退到模式决定的起始页
+        if (!string.IsNullOrEmpty(preserveFilePath))
+        {
+            int keepIdx = _imageFiles.FindIndex(f => string.Equals(f, preserveFilePath, StringComparison.OrdinalIgnoreCase));
+            if (keepIdx >= 0) _currentIndex = keepIdx;
+        }
+
         _forcedTwoPageIndex = -1;
         _lastEvaluatedConnectedIndex = -1;
         _activeConnectedOverride = null;
@@ -565,7 +582,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         EmptyStatePanel.Visibility = Visibility.Collapsed;
         RenderCurrentPage();
 
-        if (_settings.StartupOpenMode == 3 && !openAtLastPage)
+        if (_settings.StartupOpenMode == 3 && !openAtLastPage && !preserveCurrentPosition)
         {
             OpenThumbnailView(0, _settings.CustomThumbnailSize);
         }
@@ -694,6 +711,29 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         }
     }
 
+    // 布局四舍五入可能让 Extent 比 Viewport 多出不到 1px，从而又触发一条滚动条
+    private const double ScrollBarSafetyMargin = 2.0;
+
+    /// <summary>
+    /// 自适应布局用的「有效视口」尺寸。
+    /// 滚动条为 Auto/Visible 时会占据 ScrollViewer 内部空间：垂直条吃掉宽度、水平条吃掉高度。
+    /// 若仍按根 Grid 全尺寸计算图像，内容会超出可见区域并额外冒出另一方向的滚动条。
+    /// 因此显示滚动条时预留两个方向的滚动条尺寸（保守但稳定）；Hidden 下滚动条不占位，用全尺寸。
+    /// </summary>
+    private (double Width, double Height) GetEffectiveViewportSize(double? width = null, double? height = null)
+    {
+        double w = Math.Max(320, width ?? ViewerRootGrid.ActualWidth);
+        double h = Math.Max(240, height ?? ViewerRootGrid.ActualHeight);
+
+        if (_settings.ShowScrollBars)
+        {
+            w = Math.Max(320, w - SystemParameters.VerticalScrollBarWidth - ScrollBarSafetyMargin);
+            h = Math.Max(240, h - SystemParameters.HorizontalScrollBarHeight - ScrollBarSafetyMargin);
+        }
+
+        return (w, h);
+    }
+
     private void RenderCurrentPage()
     {
         if (_isRendering) return;
@@ -723,8 +763,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             PageDisplayMode effectiveMode = _activeConnectedOverride?.SuggestedMode ?? _settings.PageMode;
             SpreadDirection effectiveDirection = _activeConnectedOverride?.SuggestedDirection ?? _settings.SpreadDirection;
 
-            double viewportW = Math.Max(320, ViewerRootGrid.ActualWidth);
-            double viewportH = Math.Max(240, ViewerRootGrid.ActualHeight);
+            var (viewportW, viewportH) = GetEffectiveViewportSize();
             _lastRenderedViewportW = viewportW;
             _lastRenderedViewportH = viewportH;
 
@@ -2815,8 +2854,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 RenderCurrentPage();
                 Title = "MangaMeYeah!";
                 return;
-            case 281: // 更新
-                if (!string.IsNullOrEmpty(_currentFolderPath)) OpenPath(_currentFolderPath);
+            case 281: // 更新（重新扫描，保持当前页码）
+                if (!string.IsNullOrEmpty(_currentFolderPath)) OpenPath(_currentFolderPath, preserveCurrentPosition: true);
                 return;
             case 40023: // クリップボードへコピー
                 CopyCurrentImageToClipboard();
@@ -3274,14 +3313,15 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     private void ViewerRootGrid_SizeChanged(object sender, SizeChangedEventArgs e)
     {
         if (_imageFiles.Count == 0) return;
-        if (Math.Abs(e.NewSize.Width - _lastRenderedViewportW) < 2 &&
-            Math.Abs(e.NewSize.Height - _lastRenderedViewportH) < 2)
+        var (w, h) = GetEffectiveViewportSize(e.NewSize.Width, e.NewSize.Height);
+        if (Math.Abs(w - _lastRenderedViewportW) < 2 &&
+            Math.Abs(h - _lastRenderedViewportH) < 2)
         {
             return;
         }
 
-        _lastRenderedViewportW = e.NewSize.Width;
-        _lastRenderedViewportH = e.NewSize.Height;
+        _lastRenderedViewportW = w;
+        _lastRenderedViewportH = h;
 
         Dispatcher.BeginInvoke(DispatcherPriority.Background, () =>
         {

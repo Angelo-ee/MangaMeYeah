@@ -179,12 +179,13 @@
 
                                 <CheckBox Content="加载图像时同步到文件夹树" IsChecked="True" IsEnabled="False" />
 
-                                <WrapPanel Margin="0,4,0,4">
+                                <WrapPanel Margin="0,4,0,2">
                                     <RadioButton Content="从书签打开" GroupName="StartupOpenMode" IsEnabled="False" />
                                     <RadioButton x:Name="OpenFromStartRadio" Content="从开头打开" GroupName="StartupOpenMode" Checked="SettingControl_Changed" />
-                                    <RadioButton Content="从标记打开" GroupName="StartupOpenMode" IsEnabled="False" />
+                                    <RadioButton x:Name="OpenResumeRadio" Content="从上次阅读位置打开" GroupName="StartupOpenMode" Checked="SettingControl_Changed" />
                                     <RadioButton x:Name="OpenThumbnailRadio" Content="缩略图显示" GroupName="StartupOpenMode" Checked="SettingControl_Changed" />
                                 </WrapPanel>
+                                <TextBlock Text="从开头打开 = 忽略断点记忆，打开任何文件夹/压缩包都从第 1 页开始；从上次阅读位置打开 / 缩略图显示 = 恢复到上次读到的页。" Foreground="#666666" TextWrapping="Wrap" Margin="0,0,0,4" />
 
                                 <WrapPanel IsEnabled="False" Margin="0,2,0,0">
                                     <TextBlock Text="菜单历史保留数" VerticalAlignment="Center" Margin="0,0,8,0" />

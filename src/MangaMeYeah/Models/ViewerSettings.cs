@@ -131,7 +131,7 @@ public class ViewerSettings
     public bool IncludeFolderArchivesAsSubfolders { get; set; } = true; // フォルダ内書庫もサブフォルダに含める
     public bool IncludeArchiveArchivesAsSubfolders { get; set; } = true; // 書庫内書庫もサブフォルダに含める
     public string InitialFolderPath { get; set; } = string.Empty;
-    public int StartupOpenMode { get; set; } = 1; // 1=先頭から開く, 3=サムネイル表示
+    public int StartupOpenMode { get; set; } = 1; // 1=从开头打开(忽略断点记忆), 2=从上次阅读位置打开, 3=缩略图显示
     public bool AddBlankFirstPage { get; set; } = false;
 
     // 一般設定 2 (Tab 3: ルーペ・背景)
@@ -528,7 +528,7 @@ public class ViewerSettings
                         break;
                     case "startupopenmode":
                     case "startupopen":
-                        settings.StartupOpenMode = ParseInt(val, settings.StartupOpenMode);
+                        settings.StartupOpenMode = Math.Clamp(ParseInt(val, settings.StartupOpenMode), 1, 3);
                         break;
                     case "addblankfirstpage":
                     case "doorpage":
