@@ -1,10 +1,10 @@
-# Build script to generate all 3 release packages for MangaMeYeah v0.3.5
-# 1. Windows Installer (MangaMeYeah-v0.3.5-Setup.exe)
-# 2. Portable ZIP (MangaMeYeah-v0.3.5-win-x64-portable.zip)
-# 3. Source code ZIP (MangaMeYeah-v0.3.5-source.zip)
+# Build script to generate all 3 release packages for MangaMeYeah v0.4.1
+# 1. Windows Installer (MangaMeYeah-v0.4.1-Setup.exe)
+# 2. Portable ZIP (MangaMeYeah-v0.4.1-win-x64-portable.zip)
+# 3. Source code ZIP (MangaMeYeah-v0.4.1-source.zip)
 
 param (
-    [string]$Version = "0.3.5"
+    [string]$Version = "0.4.1"
 )
 
 $ErrorActionPreference = "Stop"

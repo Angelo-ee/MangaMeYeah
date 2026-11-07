@@ -1,6 +1,6 @@
-; Inno Setup Script for MangaMeYeah v0.3.5
+; Inno Setup Script for MangaMeYeah v0.4.1 (简体中文版)
 #define MyAppName "MangaMeYeah"
-#define MyAppVersion "0.3.5"
+#define MyAppVersion "0.4.1"
 #define MyAppPublisher "emmmanime"
 #define MyAppURL "https://github.com/emmmanime/MangaMeYeah"
 #define MyAppExeName "MangaMeYeah.exe"
@@ -18,7 +18,7 @@ DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 LicenseFile=..\LICENSE
 OutputDir=..\release
-OutputBaseFilename=MangaMeYeah-v0.3.5-Setup
+OutputBaseFilename=MangaMeYeah-v0.4.1-Setup
 SetupIconFile=..\src\MangaMeYeah\Assets\MangaMeYeah.ico
 Compression=lzma2/ultra64
 SolidCompression=yes
@@ -37,12 +37,13 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Source: "..\publish\win-x64\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\docs\*"; DestDir: "{app}\docs"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "..\README.md"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\README.jp"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\LICENSE"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\HISTORY.md"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
-Name: "{group}\マニュアル (Docs)"; Filename: "{app}\docs\help\index.md"
+Name: "{group}\帮助文档 (Docs)"; Filename: "{app}\docs\help\index.md"
 Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 
