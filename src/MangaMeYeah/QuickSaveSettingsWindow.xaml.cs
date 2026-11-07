@@ -41,7 +41,7 @@ public partial class QuickSaveSettingsWindow : Window
     {
         var dialog = new OpenFolderDialog
         {
-            Title = "クイックセーブ保存先フォルダを選択"
+            Title = "选择快速保存目标文件夹"
         };
         if (!string.IsNullOrWhiteSpace(targetTextBox.Text) && Directory.Exists(targetTextBox.Text))
         {

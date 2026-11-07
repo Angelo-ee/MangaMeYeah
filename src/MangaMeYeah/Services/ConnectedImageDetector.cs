@@ -91,8 +91,8 @@ public static partial class ConnectedImageDetector
                     bool isNatural = bestPermutation[0] == 0 && bestPermutation[1] == 1 &&
                                      bestPermutation[2] == 2 && bestPermutation[3] == 3;
                     string desc = isNatural
-                        ? "縦横2×2連結画像 (4枚)"
-                        : "縦横2×2連結画像 (4枚・シャッフル配置自動復元)";
+                        ? "2×2 拼接图像 (4 张)"
+                        : "2×2 拼接图像 (4 张·自动还原乱序排列)";
 
                     return new ConnectedImageGroupResult(
                         4,
@@ -144,7 +144,7 @@ public static partial class ConnectedImageDetector
                     count,
                     mode,
                     vertDir,
-                    $"縦{count}枚連結画像");
+                    $"纵向 {count} 张拼接图像");
             }
 
             if (horizSuccess)
@@ -155,12 +155,12 @@ public static partial class ConnectedImageDetector
                     3 => PageDisplayMode.Horizontal3,
                     _ => PageDisplayMode.TwoPage
                 };
-                string dirLabel = horizDir == SpreadDirection.RightToLeft ? "右開き" : "左開き";
+                string dirLabel = horizDir == SpreadDirection.RightToLeft ? "右开" : "左开";
                 return new ConnectedImageGroupResult(
                     count,
                     mode,
                     horizDir,
-                    $"横{count}枚連結画像 ({dirLabel})");
+                    $"横向 {count} 张拼接图像 ({dirLabel})");
             }
         }
 

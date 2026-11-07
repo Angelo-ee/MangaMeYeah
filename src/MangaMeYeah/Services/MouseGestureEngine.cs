@@ -101,18 +101,18 @@ public sealed class MouseGestureEngine
     {
         return pattern switch
         {
-            "↑" => (GestureAction.FullScreenToggle, "フルスクリーン切り替え"),
-            "↓" => (GestureAction.AlignHeightTwoPage, "縦サイズを揃える (2ページ表示用)"),
-            "←" => (GestureAction.FitEither, "縦横どちらか合わせる"),
-            "→" => (GestureAction.ThumbnailCustom, "サムネイル表示 (カスタム)"),
-            "→→" => (GestureAction.JumpForwardFixed, "固定ページ進む"),
-            "←←" => (GestureAction.JumpBackwardFixed, "固定ページ戻る"),
-            "↑↓" or "↓↑" => (GestureAction.SpecifiedScale, "指定スケール表示 (170%)"),
-            "↑←" or "←↑" => (GestureAction.QuickSave1, "クイックセーブ1"),
-            "↑→" or "→↑" => (GestureAction.QuickSave2, "クイックセーブ2"),
-            "↓←" or "←↓" => (GestureAction.QuickSave3, "クイックセーブ3"),
-            "↓→" or "→↓" => (GestureAction.QuickSave4, "クイックセーブ4"),
-            _ => (GestureAction.None, string.IsNullOrEmpty(pattern) ? "" : "未割り当て")
+            "↑" => (GestureAction.FullScreenToggle, "切换全屏"),
+            "↓" => (GestureAction.AlignHeightTwoPage, "统一高度 (用于双页显示)"),
+            "←" => (GestureAction.FitEither, "适应宽或高"),
+            "→" => (GestureAction.ThumbnailCustom, "缩略图显示 (自定义)"),
+            "→→" => (GestureAction.JumpForwardFixed, "前进固定页数"),
+            "←←" => (GestureAction.JumpBackwardFixed, "后退固定页数"),
+            "↑↓" or "↓↑" => (GestureAction.SpecifiedScale, "指定倍率显示 (170%)"),
+            "↑←" or "←↑" => (GestureAction.QuickSave1, "快速保存 1"),
+            "↑→" or "→↑" => (GestureAction.QuickSave2, "快速保存 2"),
+            "↓←" or "←↓" => (GestureAction.QuickSave3, "快速保存 3"),
+            "↓→" or "→↓" => (GestureAction.QuickSave4, "快速保存 4"),
+            _ => (GestureAction.None, string.IsNullOrEmpty(pattern) ? "" : "未分配")
         };
     }
 }

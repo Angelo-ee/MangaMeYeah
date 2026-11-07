@@ -9,7 +9,7 @@ public partial class ConnectedImagePromptWindow : Window
     public ConnectedImagePromptWindow(string detectedDescription)
     {
         InitializeComponent();
-        MessageTextBlock.Text = $"連結画像（{detectedDescription}）を検出しました。\n連結表示に切り替えて表示しますか？";
+        MessageTextBlock.Text = $"检测到拼接图像（{detectedDescription}）。\n是否切换为拼接显示？";
     }
 
     private void YesButton_Click(object sender, RoutedEventArgs e)

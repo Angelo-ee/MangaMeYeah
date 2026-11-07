@@ -12,13 +12,13 @@ public static class QuickSaveService
     {
         if (sourceFilePaths.Count == 0)
         {
-            return (false, "保存対象の画像が開かれていません。");
+            return (false, "尚未打开要保存的图像。");
         }
 
         var slot = settings.QuickSaveSlots.FirstOrDefault(s => s.SlotNumber == slotNumber);
         if (slot == null || string.IsNullOrWhiteSpace(slot.FolderPath))
         {
-            return (false, $"クイックセーブ{slotNumber} の保存先フォルダが未設定です。「ファイル > クイックセーブ設定」から設定してください。");
+            return (false, $"快速保存 {slotNumber} 尚未设置目标文件夹，请在「文件 > 快速保存设置」中设置。");
         }
 
         try
@@ -51,18 +51,18 @@ public static class QuickSaveService
 
             if (savedNames.Count == 0)
             {
-                return (false, "保存できるファイルがありませんでした。");
+                return (false, "没有可保存的文件。");
             }
 
             string summary = savedNames.Count == 1
                 ? savedNames[0]
-                : $"{savedNames[0]} ほか計{savedNames.Count}枚";
+                : $"{savedNames[0]} 等共 {savedNames.Count} 张";
 
-            return (true, $"[QuickSave{slotNumber}] 保存完了: {summary} → {slot.FolderPath}");
+            return (true, $"[QuickSave{slotNumber}] 保存完成: {summary} → {slot.FolderPath}");
         }
         catch (Exception ex)
         {
-            return (false, $"[QuickSave{slotNumber}] 保存エラー: {ex.Message}");
+            return (false, $"[QuickSave{slotNumber}] 保存错误: {ex.Message}");
         }
     }
 

@@ -474,8 +474,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 {
                     var result = MessageBox.Show(
                         this,
-                        "サブフォルダ（および書庫）内の画像も読み込みますか？\n\n[はい]: サブフォルダも含める\n[いいえ]: 現在のフォルダのみ",
-                        "サブフォルダ読み込み",
+                        "是否同时加载子文件夹（及压缩包）内的图像？\n\n[是]: 包含子文件夹\n[否]: 仅当前文件夹",
+                        "加载子文件夹",
                         MessageBoxButton.YesNo,
                         MessageBoxImage.Question);
                     return result == MessageBoxResult.Yes;
@@ -556,8 +556,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             _currentDisplayedSlots = [];
             EmptyStatePanel.Visibility = Visibility.Visible;
             PageCanvasGrid.Children.Clear();
-            Title = $"MangaMeYeah! - [{Path.GetFileName(_currentFolderPath)}] (画像なし)";
-            ShowOsd("対応する画像ファイルが見つかりませんでした");
+            Title = $"MangaMeYeah! - [{Path.GetFileName(_currentFolderPath)}] (无图像)";
+            ShowOsd("未找到支持的图像文件");
             UpdateMenuCheckStates();
             return;
         }
@@ -610,7 +610,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         if (_settings.AutoDetectConnectedImages)
         {
             _activeConnectedOverride = detected;
-            ShowOsd($"連結画像を自動検出: {detected.Description}");
+            ShowOsd($"自动检测到拼接图像: {detected.Description}");
         }
         else if (!_settings.SuppressConnectedImagePrompt)
         {
@@ -628,7 +628,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 if (res == true && promptIdx == _currentIndex)
                 {
                     _activeConnectedOverride = detected;
-                    ShowOsd($"連結表示に切替: {detected.Description}");
+                    ShowOsd($"切换为拼接显示: {detected.Description}");
                     RenderCurrentPage();
                 }
             });
@@ -1112,7 +1112,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             _forcedTwoPageIndex = -1;
             _currentIndex = 0;
             RenderCurrentPage();
-            ShowOsd("先頭ページ");
+            ShowOsd("第一页");
         }
     }
 
@@ -1123,7 +1123,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             _forcedTwoPageIndex = -1;
             _currentIndex = GetLastPageGroupStartIndex();
             RenderCurrentPage();
-            ShowOsd("最終ページ");
+            ShowOsd("最后一页");
         }
     }
 
@@ -1155,7 +1155,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             _forcedTwoPageIndex = -1;
             _currentIndex = firstIdx;
             RenderCurrentPage();
-            ShowOsd($"クリエイター先頭: {currentPrefix} ({_currentIndex + 1}/{_imageFiles.Count})");
+            ShowOsd($"创作者首位: {currentPrefix} ({_currentIndex + 1}/{_imageFiles.Count})");
         }
         else if (firstIdx > 0)
         {
@@ -1178,11 +1178,11 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             _forcedTwoPageIndex = -1;
             _currentIndex = targetIdx;
             RenderCurrentPage();
-            ShowOsd($"前のクリエイター: {prevCreatorPrefix} ({_currentIndex + 1}/{_imageFiles.Count})");
+            ShowOsd($"上一个创作者: {prevCreatorPrefix} ({_currentIndex + 1}/{_imageFiles.Count})");
         }
         else
         {
-            ShowOsd($"最初のクリエイターの先頭です: {currentPrefix} (1/{_imageFiles.Count})");
+            ShowOsd($"已是第一个创作者的首位: {currentPrefix} (1/{_imageFiles.Count})");
         }
     }
 
@@ -1214,7 +1214,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             _forcedTwoPageIndex = -1;
             _currentIndex = lastIdx;
             RenderCurrentPage();
-            ShowOsd($"クリエイター最後尾: {currentPrefix} ({_currentIndex + 1}/{_imageFiles.Count})");
+            ShowOsd($"创作者末位: {currentPrefix} ({_currentIndex + 1}/{_imageFiles.Count})");
         }
         else if (lastIdx < _imageFiles.Count - 1)
         {
@@ -1225,11 +1225,11 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             _forcedTwoPageIndex = -1;
             _currentIndex = targetIdx;
             RenderCurrentPage();
-            ShowOsd($"次のクリエイター: {nextCreatorPrefix} ({_currentIndex + 1}/{_imageFiles.Count})");
+            ShowOsd($"下一个创作者: {nextCreatorPrefix} ({_currentIndex + 1}/{_imageFiles.Count})");
         }
         else
         {
-            ShowOsd($"最後のクリエイターの最後尾です: {currentPrefix} ({_imageFiles.Count}/{_imageFiles.Count})");
+            ShowOsd($"已是最后一个创作者的末位: {currentPrefix} ({_imageFiles.Count}/{_imageFiles.Count})");
         }
     }
 
@@ -1257,14 +1257,14 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
                 if (nextFolder != null)
                 {
-                    ShowOsd($"次のフォルダへ移動中: {Path.GetFileName(nextFolder)}");
+                    ShowOsd($"正在切换到下一个文件夹: {Path.GetFileName(nextFolder)}");
                     Mouse.OverrideCursor = Cursors.Wait;
                     OpenPath(nextFolder, openAtLastPage: false);
-                    ShowOsd($"フォルダ移動: {Path.GetFileName(nextFolder)}");
+                    ShowOsd($"切换文件夹: {Path.GetFileName(nextFolder)}");
                 }
                 else
                 {
-                    ShowOsd("最終ページです (次のフォルダはありません)");
+                    ShowOsd("已是最后一页 (没有下一个文件夹)");
                 }
             }
             finally
@@ -1291,14 +1291,14 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
                 if (prevFolder != null)
                 {
-                    ShowOsd($"前のフォルダへ移動中: {Path.GetFileName(prevFolder)}");
+                    ShowOsd($"正在切换到上一个文件夹: {Path.GetFileName(prevFolder)}");
                     Mouse.OverrideCursor = Cursors.Wait;
                     OpenPath(prevFolder, openAtLastPage: true);
-                    ShowOsd($"フォルダ移動: {Path.GetFileName(prevFolder)}");
+                    ShowOsd($"切换文件夹: {Path.GetFileName(prevFolder)}");
                 }
                 else
                 {
-                    ShowOsd("先頭ページです (前のフォルダはありません)");
+                    ShowOsd("已是第一页 (没有上一个文件夹)");
                 }
             }
             finally
@@ -1396,14 +1396,14 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
             if (targetFolder != null)
             {
-                ShowOsd(offset > 0 ? $"次のフォルダへ移動中: {Path.GetFileName(targetFolder)}" : $"前のフォルダへ移動中: {Path.GetFileName(targetFolder)}");
+                ShowOsd(offset > 0 ? $"正在切换到下一个文件夹: {Path.GetFileName(targetFolder)}" : $"正在切换到上一个文件夹: {Path.GetFileName(targetFolder)}");
                 Mouse.OverrideCursor = Cursors.Wait;
                 OpenPath(targetFolder, openAtLastPage: offset < 0);
-                ShowOsd($"フォルダ移動: {Path.GetFileName(targetFolder)}");
+                ShowOsd($"切换文件夹: {Path.GetFileName(targetFolder)}");
             }
             else
             {
-                ShowOsd(offset > 0 ? "次のフォルダはありません" : "前のフォルダはありません");
+                ShowOsd(offset > 0 ? "没有下一个文件夹" : "没有上一个文件夹");
             }
         }
         finally
@@ -1432,7 +1432,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 ? _savedMultiPageMode
                 : PageDisplayMode.TwoPage;
             _forcedTwoPageIndex = _currentIndex;
-            ShowOsd($"{GetPageModeDisplayName(_settings.PageMode)} (位置調整完了)");
+            ShowOsd($"{GetPageModeDisplayName(_settings.PageMode)} (位置调整完成)");
         }
         else
         {
@@ -1440,23 +1440,23 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             _savedMultiPageMode = _settings.PageMode;
             _forcedTwoPageIndex = -1;
             _settings.PageMode = PageDisplayMode.SinglePage;
-            ShowOsd("1ページ表示 (1枚ずれ調整用: 次へ進んで再切替)");
+            ShowOsd("单页显示 (用于单张偏移调整: 前进一页后再次切换)");
         }
         RenderCurrentPage();
     }
 
     private static string GetPageModeDisplayName(PageDisplayMode mode) => mode switch
     {
-        PageDisplayMode.SinglePage => "1ページ表示",
-        PageDisplayMode.TwoPage => "横2枚見開き表示",
-        PageDisplayMode.AutoSpread => "自動見開き表示",
-        PageDisplayMode.Vertical2 => "縦2枚表示",
-        PageDisplayMode.Horizontal3 => "横3枚表示",
-        PageDisplayMode.Vertical3 => "縦3枚表示",
-        PageDisplayMode.Horizontal4 => "横4枚表示",
-        PageDisplayMode.Vertical4 => "縦4枚表示",
-        PageDisplayMode.Grid2x2 => "縦横2×2枚表示",
-        _ => "複数枚表示"
+        PageDisplayMode.SinglePage => "单页显示",
+        PageDisplayMode.TwoPage => "横向 2 张跨页显示",
+        PageDisplayMode.AutoSpread => "自动跨页显示",
+        PageDisplayMode.Vertical2 => "纵向 2 张显示",
+        PageDisplayMode.Horizontal3 => "横向 3 张显示",
+        PageDisplayMode.Vertical3 => "纵向 3 张显示",
+        PageDisplayMode.Horizontal4 => "横向 4 张显示",
+        PageDisplayMode.Vertical4 => "纵向 4 张显示",
+        PageDisplayMode.Grid2x2 => "2×2 网格显示",
+        _ => "多张显示"
     };
 
     private void ApplyFullScreenBounds()
@@ -1501,7 +1501,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             ViewerRootGrid.Cursor = _settings.FullScreenHideCursor ? Cursors.None : Cursors.Arrow;
             ViewerRootGrid.Margin = new Thickness(0);
             MainMenuBar.Visibility = _fullScreenMenuMode == 0 ? Visibility.Visible : Visibility.Collapsed;
-            ShowOsd("フルスクリーン表示 (画面上端にマウス移動でメニュー表示 / ↑ジェスチャで解除)");
+            ShowOsd("全屏显示 (鼠标移到屏幕顶端显示菜单 / ↑ 手势退出)");
         }
         else
         {
@@ -1519,7 +1519,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             }
             ViewerRootGrid.Margin = new Thickness(0, 22, 0, 0);
             MainMenuBar.Visibility = Visibility.Visible;
-            ShowOsd("ウィンドウ表示");
+            ShowOsd("窗口显示");
         }
         UpdateMenuCheckStates();
         Dispatcher.BeginInvoke(DispatcherPriority.Render, RenderCurrentPage);
@@ -1585,12 +1585,12 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         {
             _settings.ScaleMode = ScaleMode.FixedScale;
             int pct = (int)Math.Round(_settings.FixedZoomFactor * 100);
-            ShowOsd($"スケール: 倍率固定(デフォルト) ({pct}%)");
+            ShowOsd($"缩放: 固定倍率(默认) ({pct}%)");
         }
         else
         {
             _settings.ScaleMode = ScaleMode.AlignHeightTwoPage;
-            ShowOsd("スケール: 縦サイズを揃える(2ページ表示用)");
+            ShowOsd("缩放: 统一高度(用于双页显示)");
         }
         RenderCurrentPage();
     }
@@ -1602,19 +1602,19 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             if (mode == ScaleMode.FixedScale)
             {
                 _settings.ScaleMode = ScaleMode.AlignHeightTwoPage;
-                ShowOsd("スケール: 縦サイズを揃える(2ページ表示用)");
+                ShowOsd("缩放: 统一高度(用于双页显示)");
             }
             else
             {
                 _settings.ScaleMode = ScaleMode.FixedScale;
                 int pct = (int)Math.Round(_settings.FixedZoomFactor * 100);
-                ShowOsd($"スケール: 倍率固定(デフォルト) ({pct}%)");
+                ShowOsd($"缩放: 固定倍率(默认) ({pct}%)");
             }
             RenderCurrentPage();
             return;
         }
         _settings.ScaleMode = mode;
-        ShowOsd($"スケール: {label}");
+        ShowOsd($"缩放: {label}");
         RenderCurrentPage();
     }
 
@@ -1624,7 +1624,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         if (Math.Abs(step) < 0.01) step = delta;
         _settings.ScaleMode = ScaleMode.FixedScale;
         _settings.FixedZoomFactor = Math.Clamp(_settings.FixedZoomFactor + step, 0.1, 8.0);
-        ShowOsd($"倍率固定: {(int)Math.Round(_settings.FixedZoomFactor * 100)}%");
+        ShowOsd($"固定倍率: {(int)Math.Round(_settings.FixedZoomFactor * 100)}%");
         RenderCurrentPage();
     }
 
@@ -1644,11 +1644,11 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             }
             ApplyLoupeSettings();
             UpdateLoupePosition(Mouse.GetPosition(ViewerRootGrid));
-            ShowOsd($"ルーペ ON ({(int)(_settings.LoupeScale * 100)}%) - 右ボタン+ホイールで倍率変更");
+            ShowOsd($"放大镜 开 ({(int)(_settings.LoupeScale * 100)}%) - 右键+滚轮调整倍率");
         }
         else
         {
-            ShowOsd("ルーペ OFF");
+            ShowOsd("放大镜 关");
         }
     }
 
@@ -1713,14 +1713,14 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     {
         if (_imageFiles.Count == 0)
         {
-            ShowOsd("画像が開かれていません");
+            ShowOsd("尚未打开图像");
             return;
         }
 
         var slot = _settings.QuickSaveSlots.FirstOrDefault(s => s.SlotNumber == slotNumber);
         if (slot == null || string.IsNullOrWhiteSpace(slot.FolderPath))
         {
-            ShowOsd($"クイックセーブ{slotNumber} の保存先フォルダを設定してください");
+            ShowOsd($"请设置快速保存 {slotNumber} 的目标文件夹");
             OpenQuickSaveSettingsDialog();
             slot = _settings.QuickSaveSlots.FirstOrDefault(s => s.SlotNumber == slotNumber);
             if (slot == null || string.IsNullOrWhiteSpace(slot.FolderPath))
@@ -1745,7 +1745,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         if (dlg.ShowDialog() == true)
         {
             UpdateQuickSaveButtonTooltips();
-            ShowOsd("クイックセーブ設定を保存しました");
+            ShowOsd("快速保存设置已保存");
         }
     }
 
@@ -1763,7 +1763,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         var dlg = new PreferencesWindow(_settings, ApplyRuntimePreferences) { Owner = this };
         if (dlg.ShowDialog() == true)
         {
-            ShowOsd("環境設定を保存しました");
+            ShowOsd("设置已保存");
         }
     }
 
@@ -1773,9 +1773,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         for (int i = 0; i < buttons.Length && i < _settings.QuickSaveSlots.Count; i++)
         {
             string folder = _settings.QuickSaveSlots[i].FolderPath;
-            string shortName = !string.IsNullOrEmpty(folder) ? Path.GetFileName(folder) : "未設定";
+            string shortName = !string.IsNullOrEmpty(folder) ? Path.GetFileName(folder) : "未设置";
             buttons[i].Content = $"QS{i + 1}: {shortName}";
-            buttons[i].ToolTip = !string.IsNullOrEmpty(folder) ? folder : "クリックして保存先を設定";
+            buttons[i].ToolTip = !string.IsNullOrEmpty(folder) ? folder : "点击设置保存位置";
         }
     }
 
@@ -1783,7 +1783,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     {
         if (_imageFiles.Count == 0)
         {
-            ShowOsd("画像が開かれていません");
+            ShowOsd("尚未打开图像");
             return;
         }
 
@@ -1912,7 +1912,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     private void UpdateThumbnailSummaryText()
     {
         int selectedCount = _thumbnailItems.Count(t => t.IsSelected);
-        ThumbSummaryText.Text = $"サムネイル一覧 (全 {_thumbnailItems.Count} 枚 / 選択中: {selectedCount} 枚)  ※Ctrl/Shift+クリックで複数選択、ダブルクリックで表示";
+        ThumbSummaryText.Text = $"缩略图列表 (共 {_thumbnailItems.Count} 张 / 已选 {selectedCount} 张)  ※Ctrl/Shift+点击多选，双击显示";
     }
 
     private void CloseThumbnailView()
@@ -1932,8 +1932,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         {
             MessageBox.Show(
                 this,
-                "クイックセーブするサムネイルにチェックを入れてください（Ctrl+クリック、Shift+クリック、または左上のチェックボックスで複数選択できます）。",
-                "複数選択クイックセーブ",
+                "请勾选要快速保存的缩略图（可按住 Ctrl 或 Shift 点击，或使用左上角的复选框多选）。",
+                "多选快速保存",
                 MessageBoxButton.OK,
                 MessageBoxImage.Information);
             return;
@@ -2079,7 +2079,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 _chordActionTriggered = true;
                 _longPressTimer.Stop();
                 StepPage(+1);
-                ShowOsd("1ページ進む");
+                ShowOsd("前进 1 页");
                 e.Handled = true;
                 return;
             }
@@ -2101,7 +2101,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 _chordActionTriggered = true;
                 _longPressTimer.Stop();
                 StepPage(-1);
-                ShowOsd("1ページ戻る");
+                ShowOsd("后退 1 页");
                 e.Handled = true;
                 return;
             }
@@ -2163,7 +2163,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                     {
                         string pattern = _gestureEngine.CurrentGesturePattern;
                         var (_, desc) = MouseGestureEngine.ResolveGesture(pattern);
-                        GestureStatusText.Text = $"ジェスチャ [{pattern}] : {desc}";
+                        GestureStatusText.Text = $"手势 [{pattern}]: {desc}";
                     }
                 }
             }
@@ -2250,21 +2250,21 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 ToggleAlignHeightTwoPageAndFixedScale();
                 break;
             case GestureAction.FitEither:
-                SetScaleMode(ScaleMode.FitEither, "縦横どちらか合わせる");
+                SetScaleMode(ScaleMode.FitEither, "适应宽或高");
                 break;
             case GestureAction.ThumbnailCustom:
                 OpenThumbnailView(0, _settings.CustomThumbnailSize);
                 break;
             case GestureAction.JumpForwardFixed:
                 StepPage(+_settings.FixedJumpDistance);
-                ShowOsd($"{_settings.FixedJumpDistance}ページ進む");
+                ShowOsd($"前进 {_settings.FixedJumpDistance} 页");
                 break;
             case GestureAction.JumpBackwardFixed:
                 StepPage(-_settings.FixedJumpDistance);
-                ShowOsd($"{_settings.FixedJumpDistance}ページ戻る");
+                ShowOsd($"后退 {_settings.FixedJumpDistance} 页");
                 break;
             case GestureAction.SpecifiedScale:
-                SetScaleMode(ScaleMode.SpecifiedScale, $"指定スケール ({(int)(_settings.SpecifiedScaleFactor * 100)}%)");
+                SetScaleMode(ScaleMode.SpecifiedScale, $"指定倍率 ({(int)(_settings.SpecifiedScaleFactor * 100)}%)");
                 break;
             case GestureAction.QuickSave1:
                 TriggerQuickSave(1);
@@ -2279,7 +2279,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 TriggerQuickSave(4);
                 break;
             default:
-                ShowOsd($"ジェスチャ [{pattern}] ({desc})");
+                ShowOsd($"手势 [{pattern}] ({desc})");
                 break;
         }
     }
@@ -2305,7 +2305,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             {
                 _settings.LoupeScale = Math.Clamp(_settings.LoupeScale + (e.Delta > 0 ? 0.25 : -0.25), 1.25, 8.0);
                 UpdateLoupePosition(_lastMousePosition);
-                ShowOsd($"ルーペ倍率: {(int)(_settings.LoupeScale * 100)}%");
+                ShowOsd($"放大镜倍率: {(int)(_settings.LoupeScale * 100)}%");
             }
             else
             {
@@ -2398,7 +2398,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                         _settings.LoupeRadius = Math.Clamp(_settings.LoupeRadius + 16, 60, 360);
                         ApplyLoupeSettings();
                         UpdateLoupePosition(_lastMousePosition);
-                        ShowOsd($"ルーペ半径: {_settings.LoupeRadius}px");
+                        ShowOsd($"放大镜半径: {_settings.LoupeRadius}px");
                     }
                     else
                     {
@@ -2412,7 +2412,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                         _settings.LoupeRadius = Math.Clamp(_settings.LoupeRadius - 16, 60, 360);
                         ApplyLoupeSettings();
                         UpdateLoupePosition(_lastMousePosition);
-                        ShowOsd($"ルーペ半径: {_settings.LoupeRadius}px");
+                        ShowOsd($"放大镜半径: {_settings.LoupeRadius}px");
                     }
                     else
                     {
@@ -2425,7 +2425,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                     {
                         _settings.LoupeScale = Math.Clamp(_settings.LoupeScale + 0.25, 1.25, 8.0);
                         UpdateLoupePosition(_lastMousePosition);
-                        ShowOsd($"ルーペ倍率: {(int)(_settings.LoupeScale * 100)}%");
+                        ShowOsd($"放大镜倍率: {(int)(_settings.LoupeScale * 100)}%");
                         e.Handled = true;
                         return;
                     }
@@ -2435,7 +2435,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                     {
                         _settings.LoupeScale = Math.Clamp(_settings.LoupeScale - 0.25, 1.25, 8.0);
                         UpdateLoupePosition(_lastMousePosition);
-                        ShowOsd($"ルーペ倍率: {(int)(_settings.LoupeScale * 100)}%");
+                        ShowOsd($"放大镜倍率: {(int)(_settings.LoupeScale * 100)}%");
                         e.Handled = true;
                         return;
                     }
@@ -2449,12 +2449,12 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             {
                 case Key.Down:
                     StepPage(+1);
-                    ShowOsd("1ページ進む");
+                    ShowOsd("前进 1 页");
                     e.Handled = true;
                     return;
                 case Key.Up:
                     StepPage(-1);
-                    ShowOsd("1ページ戻る");
+                    ShowOsd("后退 1 页");
                     e.Handled = true;
                     return;
                 case Key.Right:
@@ -2518,32 +2518,32 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                     _settings.SpreadDirection = _settings.SpreadDirection == SpreadDirection.RightToLeft
                         ? SpreadDirection.LeftToRight
                         : SpreadDirection.RightToLeft;
-                    ShowOsd(_settings.SpreadDirection == SpreadDirection.RightToLeft ? "右開き" : "左開き");
+                    ShowOsd(_settings.SpreadDirection == SpreadDirection.RightToLeft ? "右开" : "左开");
                     RenderCurrentPage();
                     e.Handled = true;
                     break;
                 case Key.Z:
-                    SetScaleMode(ScaleMode.FitEither, "縦横どちらか合わせる");
+                    SetScaleMode(ScaleMode.FitEither, "适应宽或高");
                     e.Handled = true;
                     break;
                 case Key.X:
-                    SetScaleMode(ScaleMode.FitWindow, "ウインドウサイズに合わせる");
+                    SetScaleMode(ScaleMode.FitWindow, "适应窗口大小");
                     e.Handled = true;
                     break;
                 case Key.C:
-                    SetScaleMode(ScaleMode.OriginalSize, "原寸サイズで表示");
+                    SetScaleMode(ScaleMode.OriginalSize, "按原始尺寸显示");
                     e.Handled = true;
                     break;
                 case Key.V:
-                    SetScaleMode(ScaleMode.FixedScale, "倍率固定表示");
+                    SetScaleMode(ScaleMode.FixedScale, "固定倍率显示");
                     e.Handled = true;
                     break;
                 case Key.B:
-                    SetScaleMode(ScaleMode.SpecifiedScale, $"指定スケール ({(int)(_settings.SpecifiedScaleFactor * 100)}%)");
+                    SetScaleMode(ScaleMode.SpecifiedScale, $"指定倍率 ({(int)(_settings.SpecifiedScaleFactor * 100)}%)");
                     e.Handled = true;
                     break;
                 case Key.N:
-                    SetScaleMode(ScaleMode.FitWindowToImage, "画像サイズに合わせる");
+                    SetScaleMode(ScaleMode.FitWindowToImage, "适应图像大小");
                     e.Handled = true;
                     break;
                 case Key.Add:
@@ -2702,29 +2702,29 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 CopyCurrentImageToClipboard();
                 return;
             case 40009: // 1ページ表示
-                SetPageDisplayMode(PageDisplayMode.SinglePage, "1ページ表示", forceTwoPageAtCurrent: false);
+                SetPageDisplayMode(PageDisplayMode.SinglePage, "单页显示", forceTwoPageAtCurrent: false);
                 return;
             case 40010: // 2ページ表示 (幅広画像でも強制的に2ページ表示可能)
             case 40200: // 横2枚表示 (標準見開き)
-                SetPageDisplayMode(PageDisplayMode.TwoPage, "横2枚表示 (見開き)", forceTwoPageAtCurrent: true);
+                SetPageDisplayMode(PageDisplayMode.TwoPage, "横向 2 张显示 (跨页)", forceTwoPageAtCurrent: true);
                 return;
             case 40201: // 縦2枚表示
-                SetPageDisplayMode(PageDisplayMode.Vertical2, "縦2枚表示");
+                SetPageDisplayMode(PageDisplayMode.Vertical2, "纵向 2 张显示");
                 return;
             case 40202: // 横3枚表示
-                SetPageDisplayMode(PageDisplayMode.Horizontal3, "横3枚表示");
+                SetPageDisplayMode(PageDisplayMode.Horizontal3, "横向 3 张显示");
                 return;
             case 40203: // 縦3枚表示
-                SetPageDisplayMode(PageDisplayMode.Vertical3, "縦3枚表示");
+                SetPageDisplayMode(PageDisplayMode.Vertical3, "纵向 3 张显示");
                 return;
             case 40204: // 横4枚表示
-                SetPageDisplayMode(PageDisplayMode.Horizontal4, "横4枚表示");
+                SetPageDisplayMode(PageDisplayMode.Horizontal4, "横向 4 张显示");
                 return;
             case 40205: // 縦4枚表示
-                SetPageDisplayMode(PageDisplayMode.Vertical4, "縦4枚表示");
+                SetPageDisplayMode(PageDisplayMode.Vertical4, "纵向 4 张显示");
                 return;
             case 40206: // 縦横2×2枚表示
-                SetPageDisplayMode(PageDisplayMode.Grid2x2, "縦横2×2枚表示 (4枚)");
+                SetPageDisplayMode(PageDisplayMode.Grid2x2, "2×2 网格显示 (4 张)");
                 return;
             case 40210: // 連結画像検出
                 _settings.AutoDetectConnectedImages = !_settings.AutoDetectConnectedImages;
@@ -2736,23 +2736,23 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 UpdateMenuCheckStates();
                 _activeConnectedOverride = null;
                 _lastEvaluatedConnectedIndex = -1;
-                ShowOsd(_settings.AutoDetectConnectedImages ? "連結画像検出: ON" : "連結画像検出: OFF");
+                ShowOsd(_settings.AutoDetectConnectedImages ? "拼接图像检测: 开" : "拼接图像检测: 关");
                 RenderCurrentPage();
                 return;
             case 278: // 左開き
                 _settings.SpreadDirection = SpreadDirection.LeftToRight;
-                ShowOsd("見開き方向: 左開き");
+                ShowOsd("跨页方向: 左开");
                 RenderCurrentPage();
                 return;
             case 279: // 右開き
                 _settings.SpreadDirection = SpreadDirection.RightToLeft;
-                ShowOsd("見開き方向: 右開き");
+                ShowOsd("跨页方向: 右开");
                 RenderCurrentPage();
                 return;
             case 131: // 自動見開き表示
                 _settings.AutoSpreadEnabled = !_settings.AutoSpreadEnabled;
                 _forcedTwoPageIndex = -1;
-                ShowOsd(_settings.AutoSpreadEnabled ? "自動見開き表示: ON" : "自動見開き表示: OFF");
+                ShowOsd(_settings.AutoSpreadEnabled ? "自动跨页显示: 开" : "自动跨页显示: 关");
                 RenderCurrentPage();
                 return;
             case 40011: // サムネイル表示(1画面)
@@ -2772,48 +2772,48 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 _fullScreenMenuMode = 0;
                 if (_isFullScreen) MainMenuBar.Visibility = Visibility.Visible;
                 UpdateMenuCheckStates();
-                ShowOsd("フルスクリーン時メニュー: 固定表示");
+                ShowOsd("全屏时菜单: 固定显示");
                 return;
             case 381: // フルスクリーン時: メニューポップアップ表示
                 _fullScreenMenuMode = 1;
                 if (_isFullScreen) MainMenuBar.Visibility = Visibility.Collapsed;
                 UpdateMenuCheckStates();
-                ShowOsd("フルスクリーン時メニュー: ポップアップ表示");
+                ShowOsd("全屏时菜单: 弹出显示");
                 return;
             case 382: // フルスクリーン時: メニュー非表示
                 _fullScreenMenuMode = 2;
                 if (_isFullScreen) MainMenuBar.Visibility = Visibility.Collapsed;
                 UpdateMenuCheckStates();
-                ShowOsd("フルスクリーン時メニュー: 非表示");
+                ShowOsd("全屏时菜单: 隐藏");
                 return;
             case 172: // ルーペ表示
                 ToggleLoupe();
                 UpdateMenuCheckStates();
                 return;
             case 40100:
-                SetScaleMode(ScaleMode.FixedScale, $"倍率固定(デフォルト) ({(int)Math.Round(_settings.FixedZoomFactor * 100)}%)");
+                SetScaleMode(ScaleMode.FixedScale, $"固定倍率(默认) ({(int)Math.Round(_settings.FixedZoomFactor * 100)}%)");
                 return;
             case 40101:
-                SetScaleMode(ScaleMode.FitEither, "縦横どちらか合わせる");
+                SetScaleMode(ScaleMode.FitEither, "适应宽或高");
                 return;
             case 40102:
-                SetScaleMode(ScaleMode.FitWindow, "ウインドウサイズに合わせる");
+                SetScaleMode(ScaleMode.FitWindow, "适应窗口大小");
                 return;
             case 40103:
-                SetScaleMode(ScaleMode.OriginalSize, "原寸サイズで表示");
+                SetScaleMode(ScaleMode.OriginalSize, "按原始尺寸显示");
                 return;
             case 40104:
-                SetScaleMode(ScaleMode.FitWindowToImage, "画像サイズに合わせる");
+                SetScaleMode(ScaleMode.FitWindowToImage, "适应图像大小");
                 return;
             case 40105:
-                SetScaleMode(ScaleMode.SpecifiedScale, $"指定スケール ({(int)(_settings.SpecifiedScaleFactor * 100)}%)");
+                SetScaleMode(ScaleMode.SpecifiedScale, $"指定倍率 ({(int)(_settings.SpecifiedScaleFactor * 100)}%)");
                 return;
             case 40106:
-                SetScaleMode(ScaleMode.AlignHeightTwoPage, "縦サイズを揃える(2ページ表示用)");
+                SetScaleMode(ScaleMode.AlignHeightTwoPage, "统一高度(用于双页显示)");
                 return;
             case 40107:
                 _settings.ShrinkOnly = !_settings.ShrinkOnly;
-                ShowOsd(_settings.ShrinkOnly ? "縮小はするが拡大はしない: ON" : "縮小はするが拡大はしない: OFF");
+                ShowOsd(_settings.ShrinkOnly ? "只缩小不放大: 开" : "只缩小不放大: 关");
                 RenderCurrentPage();
                 return;
             case 351:
@@ -2825,7 +2825,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             case 357:
                 _settings.Filter = (InterpolationFilter)menuId;
                 _cacheEngine.Clear();
-                ShowOsd($"拡縮フィルタ変更: {menuItem.Tag}");
+                ShowOsd($"缩放滤镜已更改: {menuItem.Tag}");
                 RenderCurrentPage();
                 return;
             case 143:
@@ -2885,7 +2885,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             case 40019:
                 _settings.PreloadEnabled = !_settings.PreloadEnabled;
                 UpdateMenuCheckStates();
-                ShowOsd(_settings.PreloadEnabled ? "ファイル先読み: ON" : "ファイル先読み: OFF");
+                ShowOsd(_settings.PreloadEnabled ? "文件预加载: 开" : "文件预加载: 关");
                 return;
             case >= 400 and <= 418:
                 _currentSortMode = (FileSortMode)menuId;
@@ -2901,13 +2901,13 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                     _lastEvaluatedConnectedIndex = -1;
                     RenderCurrentPage();
                 }
-                ShowOsd($"ファイルソート変更: {menuItem.Tag}");
+                ShowOsd($"文件排序已更改: {menuItem.Tag}");
                 return;
             case >= 344 and <= 349:
                 _settings.FolderSort = (FolderSortMode)menuId;
                 _settings.Save();
                 UpdateMenuCheckStates();
-                ShowOsd($"フォルダソート変更: {menuItem.Tag}");
+                ShowOsd($"文件夹排序已更改: {menuItem.Tag}");
                 return;
             case 341: // レジストリ関連設定
                 OpenRegistrySettingsDialog();
@@ -2924,13 +2924,13 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             case 40300: // OSDテキスト表示
                 if (_settings.ShowOsdText)
                 {
-                    ShowOsd("OSDテキスト表示: OFF");
+                    ShowOsd("OSD 文本显示: 关");
                     _settings.ShowOsdText = false;
                 }
                 else
                 {
                     _settings.ShowOsdText = true;
-                    ShowOsd("OSDテキスト表示: ON");
+                    ShowOsd("OSD 文本显示: 开");
                 }
                 _settings.Save();
                 UpdateMenuCheckStates();
@@ -2939,15 +2939,15 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 _settings.ShowGestureTrail = !_settings.ShowGestureTrail;
                 _settings.Save();
                 UpdateMenuCheckStates();
-                ShowOsd(_settings.ShowGestureTrail ? "ジェスチャー軌跡表示: ON" : "ジェスチャー軌跡表示: OFF");
+                ShowOsd(_settings.ShowGestureTrail ? "手势轨迹显示: 开" : "手势轨迹显示: 关");
                 return;
         }
 
-        string featureName = menuItem.Tag as string ?? menuItem.Header?.ToString() ?? "選択された機能";
+        string featureName = menuItem.Tag as string ?? menuItem.Header?.ToString() ?? "所选功能";
         MessageBox.Show(
             this,
-            $"{featureName} は未実装です",
-            "未実装",
+            $"{featureName} 尚未实现",
+            "未实现",
             MessageBoxButton.OK,
             MessageBoxImage.Information);
     }
@@ -2964,8 +2964,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     {
         var dlg = new OpenFileDialog
         {
-            Title = "画像・書庫ファイルを開く",
-            Filter = "対応ファイル (*.jpg;*.png;*.zip;*.cbz;*.rar;*.7z...)|*.jpg;*.jpeg;*.png;*.webp;*.gif;*.bmp;*.tif;*.tiff;*.avif;*.jxl;*.heic;*.cr2;*.cr3;*.nef;*.arw;*.orf;*.raf;*.rw2;*.dng;*.zip;*.cbz;*.rar;*.cbr;*.7z|画像ファイル|*.jpg;*.jpeg;*.png;*.webp;*.gif;*.bmp;*.tif;*.tiff;*.avif;*.jxl;*.heic;*.cr2;*.cr3;*.nef;*.arw;*.orf;*.raf;*.rw2;*.dng|書庫ファイル (*.zip;*.cbz;*.rar;*.cbr;*.7z)|*.zip;*.cbz;*.rar;*.cbr;*.7z|すべてのファイル (*.*)|*.*"
+            Title = "打开图像或压缩包文件",
+            Filter = "支持的文件 (*.jpg;*.png;*.zip;*.cbz;*.rar;*.7z...)|*.jpg;*.jpeg;*.png;*.webp;*.gif;*.bmp;*.tif;*.tiff;*.avif;*.jxl;*.heic;*.cr2;*.cr3;*.nef;*.arw;*.orf;*.raf;*.rw2;*.dng;*.zip;*.cbz;*.rar;*.cbr;*.7z|图像文件|*.jpg;*.jpeg;*.png;*.webp;*.gif;*.bmp;*.tif;*.tiff;*.avif;*.jxl;*.heic;*.cr2;*.cr3;*.nef;*.arw;*.orf;*.raf;*.rw2;*.dng|压缩包文件 (*.zip;*.cbz;*.rar;*.cbr;*.7z)|*.zip;*.cbz;*.rar;*.cbr;*.7z|所有文件 (*.*)|*.*"
         };
         if (!string.IsNullOrEmpty(_currentFolderPath) && Directory.Exists(_currentFolderPath))
         {
@@ -2989,7 +2989,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     {
         var dlg = new OpenFolderDialog
         {
-            Title = "画像フォルダを開く"
+            Title = "打开图像文件夹"
         };
         if (!string.IsNullOrEmpty(_currentFolderPath) && Directory.Exists(_currentFolderPath))
         {
@@ -3010,7 +3010,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         if (_currentDisplayedEntries.Count > 0)
         {
             Clipboard.SetImage(_currentDisplayedEntries[0].Bitmap);
-            ShowOsd("クリップボードへコピーしました");
+            ShowOsd("已复制到剪贴板");
         }
     }
 
@@ -3032,7 +3032,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     {
         if (_imageFiles.Count == 0 || _currentDisplayedSlots.Count == 0)
         {
-            MessageBox.Show(this, "画像が開かれていません。", "画像情報", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(this, "尚未打开图像。", "图像信息", MessageBoxButton.OK, MessageBoxImage.Information);
             return;
         }
 
@@ -3058,12 +3058,12 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     {
         double usedMb = _cacheEngine.TotalEstimatedMemoryBytes / (1024.0 * 1024.0);
         string msg =
-            $"キャッシュ保持ページ数: {_cacheEngine.CachedPageCount} ページ (上限 {_settings.MaxCachedBitmapCount} ページ)\n" +
-            $"推定キャッシュ使用量: {usedMb:F1} MB / 上限 {_settings.CacheMemoryLimitMb:N0} MB\n" +
-            $"先読み設定: {(_settings.PreloadEnabled ? $"有効 (進む方向 {_settings.PreloadForwardCount}枚 / 戻る方向 {_settings.PreloadBackwardCount}枚)" : "無効")}\n" +
-            $"キャッシュヒット数: {_cacheEngine.CacheHits} 回 (ミス: {_cacheEngine.CacheMisses} 回)";
+            $"缓存保留页数: {_cacheEngine.CachedPageCount} 页 (上限 {_settings.MaxCachedBitmapCount} 页)\n" +
+            $"估计缓存用量: {usedMb:F1} MB / 上限 {_settings.CacheMemoryLimitMb:N0} MB\n" +
+            $"预加载设置: {(_settings.PreloadEnabled ? $"启用 (前进方向 {_settings.PreloadForwardCount}张 / 后退方向 {_settings.PreloadBackwardCount}张)" : "禁用")}\n" +
+            $"缓存命中: {_cacheEngine.CacheHits} 次 (未命中: {_cacheEngine.CacheMisses} 次)";
 
-        MessageBox.Show(this, msg, "キャッシュ情報", MessageBoxButton.OK, MessageBoxImage.Information);
+        MessageBox.Show(this, msg, "缓存信息", MessageBoxButton.OK, MessageBoxImage.Information);
     }
 
     private void HelpManualMenuItem_Click(object sender, RoutedEventArgs e)
@@ -3084,7 +3084,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 UseShellExecute = true
             };
             Process.Start(psi);
-            ShowOsd("オンラインヘルプを開きました");
+            ShowOsd("已打开在线帮助");
         }
         catch (Exception ex)
         {
@@ -3104,13 +3104,13 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 if (helpFile != null)
                 {
                     Process.Start(new ProcessStartInfo { FileName = Path.GetFullPath(helpFile), UseShellExecute = true });
-                    ShowOsd("ローカルヘルプを開きました");
+                    ShowOsd("已打开本地帮助");
                     return;
                 }
             }
             catch { }
 
-            MessageBox.Show(this, $"ヘルプの表示に失敗しました: {ex.Message}", "ヘルプ", MessageBoxButton.OK, MessageBoxImage.Warning);
+            MessageBox.Show(this, $"打开帮助失败: {ex.Message}", "帮助", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }
 

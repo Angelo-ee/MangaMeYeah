@@ -1,7 +1,7 @@
 <Window x:Class="MangaMeYeah.ImageInfoWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="画像情報"
+        Title="图像信息"
         SizeToContent="WidthAndHeight"
         MinWidth="480"
         MaxWidth="1800"

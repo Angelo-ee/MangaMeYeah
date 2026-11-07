@@ -30,128 +30,128 @@
             <!-- 右クリックコンテキストメニュー (MangaMeeya Resource ID: 295 完全再現) -->
             <Grid.ContextMenu>
                 <ContextMenu x:Name="ViewerContextMenu">
-                <MenuItem Uid="CTX_143" Header="次に進む" Tag="次に進む" Click="MenuItem_Click" />
-                <MenuItem Uid="CTX_149" Header="前に戻る" Tag="前に戻る" Click="MenuItem_Click" />
+                <MenuItem Uid="CTX_143" Header="下一页" Tag="下一页" Click="MenuItem_Click" />
+                <MenuItem Uid="CTX_149" Header="上一页" Tag="上一页" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Uid="CTX_167" Header="拡大" Tag="拡大" Click="MenuItem_Click" />
-                <MenuItem Uid="CTX_168" Header="縮小" Tag="縮小" Click="MenuItem_Click" />
+                <MenuItem Uid="CTX_167" Header="放大" Tag="放大" Click="MenuItem_Click" />
+                <MenuItem Uid="CTX_168" Header="缩小" Tag="缩小" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Header="移動(_J)">
-                    <MenuItem Uid="CTX_143" Header="次に進む" Tag="次に進む" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_144" Header="1ページだけ進む" Tag="1ページだけ進む" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_145" Header="10ページ進む" Tag="10ページ進む" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_146" Header="20ページ進む" Tag="20ページ進む" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_147" Header="50ページ進む" Tag="50ページ進む" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_148" Header="最終ページへ" Tag="最終ページへ" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_190" Header="次のサブフォルダへ" Tag="次のサブフォルダへ" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_188" Header="次のフォルダ(書庫)へ" Tag="次のフォルダ(書庫)へ" Click="MenuItem_Click" />
+                <MenuItem Header="跳转(_J)">
+                    <MenuItem Uid="CTX_143" Header="下一页" Tag="下一页" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_144" Header="前进 1 页" Tag="前进 1 页" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_145" Header="前进 10 页" Tag="前进 10 页" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_146" Header="前进 20 页" Tag="前进 20 页" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_147" Header="前进 50 页" Tag="前进 50 页" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_148" Header="跳到最后一页" Tag="跳到最后一页" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_190" Header="下一个子文件夹" Tag="下一个子文件夹" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_188" Header="下一个文件夹(压缩包)" Tag="下一个文件夹(压缩包)" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="CTX_149" Header="前に戻る" Tag="前に戻る" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_150" Header="1ページだけ戻す" Tag="1ページだけ戻す" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_151" Header="10ページ戻る" Tag="10ページ戻る" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_152" Header="20ページ戻る" Tag="20ページ戻る" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_153" Header="50ページ戻る" Tag="50ページ戻る" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_154" Header="最初のページへ" Tag="最初のページへ" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_191" Header="前のサブフォルダへ" Tag="前のサブフォルダへ" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_189" Header="前のフォルダ(書庫)へ" Tag="前のフォルダ(書庫)へ" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_149" Header="上一页" Tag="上一页" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_150" Header="后退 1 页" Tag="后退 1 页" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_151" Header="后退 10 页" Tag="后退 10 页" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_152" Header="后退 20 页" Tag="后退 20 页" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_153" Header="后退 50 页" Tag="后退 50 页" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_154" Header="跳到第一页" Tag="跳到第一页" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_191" Header="上一个子文件夹" Tag="上一个子文件夹" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_189" Header="上一个文件夹(压缩包)" Tag="上一个文件夹(压缩包)" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="CTX_272" Header="上のフォルダへ(表紙サムネイル)" Tag="上のフォルダへ(表紙サムネイル)" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_272" Header="返回上级文件夹(封面缩略图)" Tag="返回上级文件夹(封面缩略图)" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="CTX_155" Header="指定ページへ" Tag="指定ページへ" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_160" Header="ファイルビュー" Tag="ファイルビュー" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_155" Header="跳转到指定页" Tag="跳转到指定页" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_160" Header="文件视图" Tag="文件视图" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="CTX_40310" Header="クリエイターの先頭へ(_H)" InputGestureText="Ctrl+Home" Tag="クリエイターの先頭へ" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_40311" Header="クリエイターの最後尾へ(_E)" InputGestureText="Ctrl+End" Tag="クリエイターの最後尾へ" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_40310" Header="跳到创作者首位(_H)" InputGestureText="Ctrl+Home" Tag="跳到创作者首位" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_40311" Header="跳到创作者末位(_E)" InputGestureText="Ctrl+End" Tag="跳到创作者末位" Click="MenuItem_Click" />
                 </MenuItem>
-                <MenuItem Header="Avisynthフィルタプロファイル(_P)">
+                <MenuItem Header="Avisynth 滤镜配置文件(_P)">
                     <MenuItem Uid="CTX_500" Header="profile" Tag="profile" Click="MenuItem_Click" />
                 </MenuItem>
-                <MenuItem Header="ファイル(_F)">
-                    <MenuItem Uid="CTX_40003" Header="開く" Tag="開く" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_271" Header="フォルダを開く" Tag="フォルダを開く" Click="MenuItem_Click" />
+                <MenuItem Header="文件(_F)">
+                    <MenuItem Uid="CTX_40003" Header="打开" Tag="打开" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_271" Header="打开文件夹" Tag="打开文件夹" Click="MenuItem_Click" />
                     <Separator />
                     <MenuItem Uid="CTX_129" Header="保存" Tag="保存" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_280" Header="閉じる" Tag="閉じる" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_281" Header="更新" Tag="更新" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_280" Header="关闭" Tag="关闭" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_281" Header="刷新" Tag="刷新" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="CTX_218" Header="設定ファイルのインポート" Tag="設定ファイルのインポート" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_219" Header="設定ファイルのエクスポート" Tag="設定ファイルのエクスポート" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_218" Header="导入配置文件" Tag="导入配置文件" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_219" Header="导出配置文件" Tag="导出配置文件" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="CTX_40022" Header="クリップボードから貼り付け" Tag="クリップボードから貼り付け" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_40023" Header="クリップボードへコピー" Tag="クリップボードへコピー" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_40022" Header="从剪贴板粘贴" Tag="从剪贴板粘贴" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_40023" Header="复制到剪贴板" Tag="复制到剪贴板" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="CTX_40047" Header="ページ設定" Tag="ページ設定" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_40048" Header="印刷" Tag="印刷" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_40047" Header="页面设置" Tag="页面设置" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_40048" Header="打印" Tag="打印" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="CTX_127" Header="終了" Tag="終了" Click="ExitMenuItem_Click" />
+                    <MenuItem Uid="CTX_127" Header="退出" Tag="退出" Click="ExitMenuItem_Click" />
                 </MenuItem>
-                <MenuItem Header="表示(_V)">
-                    <MenuItem Uid="CTX_40009" Header="１ページ表示" Tag="１ページ表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_40010" Header="２ページ表示" Tag="２ページ表示" Click="MenuItem_Click" />
-                    <MenuItem Header="複数枚・連結表示(_M)">
-                        <MenuItem Uid="CTX_40200" Header="横2枚表示 (標準見開き)" Tag="横2枚表示" Click="MenuItem_Click" />
-                        <MenuItem Uid="CTX_40201" Header="縦2枚表示" Tag="縦2枚表示" Click="MenuItem_Click" />
-                        <MenuItem Uid="CTX_40202" Header="横3枚表示" Tag="横3枚表示" Click="MenuItem_Click" />
-                        <MenuItem Uid="CTX_40203" Header="縦3枚表示" Tag="縦3枚表示" Click="MenuItem_Click" />
-                        <MenuItem Uid="CTX_40204" Header="横4枚表示" Tag="横4枚表示" Click="MenuItem_Click" />
-                        <MenuItem Uid="CTX_40205" Header="縦4枚表示" Tag="縦4枚表示" Click="MenuItem_Click" />
-                        <MenuItem Uid="CTX_40206" Header="縦横2×2枚表示 (4枚)" Tag="縦横2×2枚表示" Click="MenuItem_Click" />
+                <MenuItem Header="视图(_V)">
+                    <MenuItem Uid="CTX_40009" Header="单页显示" Tag="单页显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_40010" Header="双页显示" Tag="双页显示" Click="MenuItem_Click" />
+                    <MenuItem Header="多张·拼接显示(_M)">
+                        <MenuItem Uid="CTX_40200" Header="横向 2 张显示 (标准跨页)" Tag="横向 2 张显示" Click="MenuItem_Click" />
+                        <MenuItem Uid="CTX_40201" Header="纵向 2 张显示" Tag="纵向 2 张显示" Click="MenuItem_Click" />
+                        <MenuItem Uid="CTX_40202" Header="横向 3 张显示" Tag="横向 3 张显示" Click="MenuItem_Click" />
+                        <MenuItem Uid="CTX_40203" Header="纵向 3 张显示" Tag="纵向 3 张显示" Click="MenuItem_Click" />
+                        <MenuItem Uid="CTX_40204" Header="横向 4 张显示" Tag="横向 4 张显示" Click="MenuItem_Click" />
+                        <MenuItem Uid="CTX_40205" Header="纵向 4 张显示" Tag="纵向 4 张显示" Click="MenuItem_Click" />
+                        <MenuItem Uid="CTX_40206" Header="2×2 网格显示 (4 张)" Tag="2×2 网格显示" Click="MenuItem_Click" />
                         <Separator />
-                        <MenuItem Uid="CTX_40210" Header="連結画像検出(_C)" Tag="連結画像検出" Click="MenuItem_Click" IsCheckable="True" />
+                        <MenuItem Uid="CTX_40210" Header="拼接图像检测(_C)" Tag="拼接图像检测" Click="MenuItem_Click" IsCheckable="True" />
                     </MenuItem>
-                    <MenuItem Header="見開き方向">
-                        <MenuItem Uid="CTX_278" Header="左開き" Tag="左開き" Click="MenuItem_Click" />
-                        <MenuItem Uid="CTX_279" Header="右開き" Tag="右開き" Click="MenuItem_Click" />
-                    </MenuItem>
-                    <Separator />
-                    <MenuItem Uid="CTX_131" Header="自動見開き表示" Tag="自動見開き表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_187" Header="自動単ページ表示(左右分割)" Tag="自動単ページ表示(左右分割)" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_256" Header="自動単ページ表示(上下分割)" Tag="自動単ページ表示(上下分割)" Click="MenuItem_Click" />
-                    <Separator />
-                    <MenuItem Uid="CTX_40011" Header="サムネイル表示(1画面)" Tag="サムネイル表示(1画面)" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_40012" Header="サムネイル表示(8列)" Tag="サムネイル表示(8列)" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_232" Header="サムネイル表示(カスタム)" Tag="サムネイル表示(カスタム)" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_250" Header="表紙サムネイル" Tag="表紙サムネイル" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_231" Header="サムネイル設定" Tag="サムネイル設定" Click="MenuItem_Click" />
-                    <Separator />
-                    <MenuItem Uid="CTX_119" Header="フルスクリーン切り替え" Tag="フルスクリーン" Click="MenuItem_Click" />
-                    <MenuItem Header="フルスクリーン時メニュー">
-                        <MenuItem Uid="CTX_380" Header="固定表示" Tag="固定表示" Click="MenuItem_Click" />
-                        <MenuItem Uid="CTX_381" Header="ポップアップ表示" Tag="ポップアップ表示" Click="MenuItem_Click" />
-                        <MenuItem Uid="CTX_382" Header="非表示" Tag="非表示" Click="MenuItem_Click" />
+                    <MenuItem Header="跨页方向">
+                        <MenuItem Uid="CTX_278" Header="左开" Tag="左开" Click="MenuItem_Click" />
+                        <MenuItem Uid="CTX_279" Header="右开" Tag="右开" Click="MenuItem_Click" />
                     </MenuItem>
                     <Separator />
-                    <MenuItem Uid="CTX_172" Header="ルーペ表示" Tag="ルーペ表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_40031" Header="ツールバー表示" Tag="ツールバー表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_175" Header="フォルダツリー表示" Tag="フォルダツリー表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_195" Header="ブックリスト表示" Tag="ブックリスト表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_261" Header="本棚表示" Tag="本棚表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_262" Header="目次表示" Tag="目次表示" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_131" Header="自动跨页显示" Tag="自动跨页显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_187" Header="自动单页显示(左右分割)" Tag="自动单页显示(左右分割)" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_256" Header="自动单页显示(上下分割)" Tag="自动单页显示(上下分割)" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="CTX_269" Header="別ウインドウ表示" Tag="別ウインドウ表示" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_40011" Header="缩略图显示(单屏)" Tag="缩略图显示(单屏)" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_40012" Header="缩略图显示(8 列)" Tag="缩略图显示(8 列)" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_232" Header="缩略图显示(自定义)" Tag="缩略图显示(自定义)" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_250" Header="封面缩略图" Tag="封面缩略图" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_231" Header="缩略图设置" Tag="缩略图设置" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="CTX_40300" Header="OSDテキスト表示(_O)" Tag="OSDテキスト表示" Click="MenuItem_Click" IsCheckable="True" />
-                    <MenuItem Uid="CTX_40301" Header="マウスジェスチャーの軌跡表示(_G)" Tag="マウスジェスチャーの軌跡表示" Click="MenuItem_Click" IsCheckable="True" />
-                    <MenuItem Uid="CTX_40210" Header="連結画像検出(_C)" Tag="連結画像検出" Click="MenuItem_Click" IsCheckable="True" />
+                    <MenuItem Uid="CTX_119" Header="切换全屏" Tag="全屏" Click="MenuItem_Click" />
+                    <MenuItem Header="全屏时的菜单">
+                        <MenuItem Uid="CTX_380" Header="固定显示" Tag="固定显示" Click="MenuItem_Click" />
+                        <MenuItem Uid="CTX_381" Header="弹出显示" Tag="弹出显示" Click="MenuItem_Click" />
+                        <MenuItem Uid="CTX_382" Header="隐藏" Tag="隐藏" Click="MenuItem_Click" />
+                    </MenuItem>
+                    <Separator />
+                    <MenuItem Uid="CTX_172" Header="放大镜显示" Tag="放大镜显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_40031" Header="工具栏显示" Tag="工具栏显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_175" Header="文件夹树显示" Tag="文件夹树显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_195" Header="书单显示" Tag="书单显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_261" Header="书架显示" Tag="书架显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_262" Header="目录显示" Tag="目录显示" Click="MenuItem_Click" />
+                    <Separator />
+                    <MenuItem Uid="CTX_269" Header="独立窗口显示" Tag="独立窗口显示" Click="MenuItem_Click" />
+                    <Separator />
+                    <MenuItem Uid="CTX_40300" Header="OSD 文本显示(_O)" Tag="OSD 文本显示" Click="MenuItem_Click" IsCheckable="True" />
+                    <MenuItem Uid="CTX_40301" Header="显示鼠标手势轨迹(_G)" Tag="显示鼠标手势轨迹" Click="MenuItem_Click" IsCheckable="True" />
+                    <MenuItem Uid="CTX_40210" Header="拼接图像检测(_C)" Tag="拼接图像检测" Click="MenuItem_Click" IsCheckable="True" />
                 </MenuItem>
-                <MenuItem Header="スケールモード(_S)">
-                    <MenuItem Uid="CTX_40101" Header="縦横どちらか合わせる" Tag="縦横どちらか合わせる" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_40102" Header="ウインドウサイズに合わせる" Tag="ウインドウサイズに合わせる" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_40103" Header="原寸サイズで表示" Tag="原寸サイズで表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_40104" Header="画像サイズに合わせる" Tag="画像サイズに合わせる" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_40106" Header="縦サイズを揃える(2ページ表示用)" Tag="縦サイズを揃える(2ページ表示用)" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_40105" Header="指定スケール、サイズで表示" Tag="指定スケール、サイズで表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_40100" Header="倍率固定(デフォルト)" Tag="倍率固定(デフォルト)" Click="MenuItem_Click" />
+                <MenuItem Header="缩放模式(_S)">
+                    <MenuItem Uid="CTX_40101" Header="适应宽或高" Tag="适应宽或高" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_40102" Header="适应窗口大小" Tag="适应窗口大小" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_40103" Header="按原始尺寸显示" Tag="按原始尺寸显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_40104" Header="适应图像大小" Tag="适应图像大小" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_40106" Header="统一高度(用于双页显示)" Tag="统一高度(用于双页显示)" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_40105" Header="按指定倍率/尺寸显示" Tag="按指定倍率/尺寸显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_40100" Header="固定倍率(默认)" Tag="固定倍率(默认)" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="CTX_40107" Header="縮小はするが拡大はしない" Tag="縮小はするが拡大はしない" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_40107" Header="只缩小不放大" Tag="只缩小不放大" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="CTX_350" Header="拡縮処理にHALFTONEフィルタを使う(_Z)" Tag="拡縮処理にHALFTONEフィルタを使う" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_351" Header="拡縮処理に平均画素法を使う(_X)" Tag="拡縮処理に平均画素法を使う" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_352" Header="拡縮処理にLanczosフィルタを使う(_C)" Tag="拡縮処理にLanczosフィルタを使う" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_353" Header="拡縮処理に３次補間(バイキュービック)を使う(_V)" Tag="拡縮処理に３次補間(バイキュービック)を使う" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_354" Header="拡縮処理に線形補間を使う(_B)" Tag="拡縮処理に線形補間を使う" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_355" Header="拡縮処理に平均画素法+シャープネス弱(_N)" Tag="拡縮処理に平均画素法+シャープネス弱" Click="MenuItem_Click" />
-                    <MenuItem Uid="CTX_356" Header="拡縮処理に平均画素法+シャープネス強(_M)" Tag="拡縮処理に平均画素法+シャープネス強" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_350" Header="缩放使用 HALFTONE 滤镜(_Z)" Tag="缩放使用 HALFTONE 滤镜" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_351" Header="缩放使用平均像素法(_X)" Tag="缩放使用平均像素法" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_352" Header="缩放使用 Lanczos 滤镜(_C)" Tag="缩放使用 Lanczos 滤镜" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_353" Header="缩放使用三次插值(双三次)(_V)" Tag="缩放使用三次插值(双三次)" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_354" Header="缩放使用线性插值(_B)" Tag="缩放使用线性插值" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_355" Header="缩放使用平均像素法+弱锐化(_N)" Tag="缩放使用平均像素法+弱锐化" Click="MenuItem_Click" />
+                    <MenuItem Uid="CTX_356" Header="缩放使用平均像素法+强锐化(_M)" Tag="缩放使用平均像素法+强锐化" Click="MenuItem_Click" />
                 </MenuItem>
                 </ContextMenu>
             </Grid.ContextMenu>
@@ -167,12 +167,12 @@
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,10" />
-                <TextBlock Text="画像ファイルまたはフォルダをここにドラッグ＆ドロップ、またはエクスプローラー右クリック「MangaMeYeahで開く」"
+                <TextBlock Text="将图片文件或文件夹拖放到此处，或在资源管理器右键选择「用 MangaMeYeah 打开」"
                            Foreground="#CFCFCF"
                            FontSize="13"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,6" />
-                <TextBlock Text="左クリック: 次へ ｜ 右クリック: 前へ ｜ 右ドラッグ: マウスジェスチャ (↖↗↙↘ クイックセーブ1〜4 / → サムネイル選別) ｜ 中クリック: ルーペ"
+                <TextBlock Text="左键: 下一页 ｜ 右键: 上一页 ｜ 右键拖动: 鼠标手势 (↖↗↙↘ 快速保存 1~4 / → 缩略图筛选) ｜ 中键: 放大镜"
                            Foreground="#B8B8B8"
                            FontSize="12"
                            HorizontalAlignment="Center" />
@@ -302,54 +302,54 @@
                                    FontWeight="Bold"
                                    VerticalAlignment="Center"
                                    Margin="0,0,16,0"
-                                   Text="サムネイル一覧" />
+                                   Text="缩略图列表" />
 
-                        <Button Content="全選択"
+                        <Button Content="全选"
                                 DockPanel.Dock="Left"
                                 Padding="8,3"
                                 Margin="0,0,6,0"
                                 Click="ThumbSelectAll_Click" />
-                        <Button Content="選択解除"
+                        <Button Content="取消选择"
                                 DockPanel.Dock="Left"
                                 Padding="8,3"
                                 Margin="0,0,16,0"
                                 Click="ThumbClearSelection_Click" />
 
-                        <TextBlock Text="一括クイックセーブ:"
+                        <TextBlock Text="批量快速保存:"
                                    DockPanel.Dock="Left"
                                    Foreground="#CCCCCC"
                                    VerticalAlignment="Center"
                                    Margin="0,0,6,0" />
                         <Button x:Name="BatchQs1Button"
-                                Content="QS1へ保存"
+                                Content="保存到 QS1"
                                 DockPanel.Dock="Left"
                                 Padding="8,3"
                                 Margin="0,0,4,0"
                                 Click="BatchQuickSave1_Click" />
                         <Button x:Name="BatchQs2Button"
-                                Content="QS2へ保存"
+                                Content="保存到 QS2"
                                 DockPanel.Dock="Left"
                                 Padding="8,3"
                                 Margin="0,0,4,0"
                                 Click="BatchQuickSave2_Click" />
                         <Button x:Name="BatchQs3Button"
-                                Content="QS3へ保存"
+                                Content="保存到 QS3"
                                 DockPanel.Dock="Left"
                                 Padding="8,3"
                                 Margin="0,0,4,0"
                                 Click="BatchQuickSave3_Click" />
                         <Button x:Name="BatchQs4Button"
-                                Content="QS4へ保存"
+                                Content="保存到 QS4"
                                 DockPanel.Dock="Left"
                                 Padding="8,3"
                                 Margin="0,0,12,0"
                                 Click="BatchQuickSave4_Click" />
-                        <Button Content="QS設定..."
+                        <Button Content="QS 设置..."
                                 DockPanel.Dock="Left"
                                 Padding="8,3"
                                 Click="OpenQuickSaveSettings_Click" />
 
-                        <Button Content="閉じる (Esc)"
+                        <Button Content="关闭 (Esc)"
                                 DockPanel.Dock="Right"
                                 Padding="12,3"
                                 Click="CloseThumbnailView_Click" />
@@ -358,7 +358,7 @@
                                     Orientation="Horizontal"
                                     VerticalAlignment="Center"
                                     Margin="0,0,16,0">
-                            <TextBlock Text="サイズ:"
+                            <TextBlock Text="尺寸:"
                                        Foreground="#CCCCCC"
                                        VerticalAlignment="Center"
                                        Margin="0,0,6,0" />
@@ -476,271 +476,271 @@
               Height="22"
               Panel.ZIndex="100"
               MouseLeave="MainMenuBar_MouseLeave">
-            <MenuItem Header="ファイル(_F)">
-                <MenuItem Uid="MAIN_40003" Header="開く(_O)..." Tag="開く" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_271" Header="フォルダを開く(_D)..." Tag="フォルダを開く" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_338" Header="URL開く(_H)..." Tag="URL開く" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_365" Header="外部プログラムで開く(_J)" Tag="外部プログラムで開く" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_366" Header="外部プログラム起動設定(_K)..." Tag="外部プログラム起動設定" Click="MenuItem_Click" />
+            <MenuItem Header="文件(_F)">
+                <MenuItem Uid="MAIN_40003" Header="打开(_O)..." Tag="打开" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_271" Header="打开文件夹(_D)..." Tag="打开文件夹" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_338" Header="打开 URL(_H)..." Tag="打开 URL" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_365" Header="用外部程序打开(_J)" Tag="用外部程序打开" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_366" Header="外部程序启动设置(_K)..." Tag="外部程序启动设置" Click="MenuItem_Click" />
                 <Separator />
                 <MenuItem Uid="MAIN_129" Header="保存(_S)..." Tag="保存" Click="MenuItem_Click" />
-                <MenuItem Header="クイックセーブ">
-                    <MenuItem Uid="MAIN_40155" Header="クイックセーブ1" Tag="クイックセーブ1" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_40156" Header="クイックセーブ2" Tag="クイックセーブ2" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_40157" Header="クイックセーブ3" Tag="クイックセーブ3" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_40158" Header="クイックセーブ4" Tag="クイックセーブ4" Click="MenuItem_Click" />
+                <MenuItem Header="快速保存">
+                    <MenuItem Uid="MAIN_40155" Header="快速保存 1" Tag="快速保存 1" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_40156" Header="快速保存 2" Tag="快速保存 2" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_40157" Header="快速保存 3" Tag="快速保存 3" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_40158" Header="快速保存 4" Tag="快速保存 4" Click="MenuItem_Click" />
                 </MenuItem>
-                <MenuItem Uid="MAIN_40162" Header="クイックセーブ設定..." Tag="クイックセーブ設定" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40162" Header="快速保存设置..." Tag="快速保存设置" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Uid="MAIN_280" Header="閉じる(_C)" Tag="閉じる" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_281" Header="更新(_R)" Tag="更新" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_280" Header="关闭(_C)" Tag="关闭" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_281" Header="刷新(_R)" Tag="刷新" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Header="ページ編集(_E)">
-                    <MenuItem Uid="MAIN_318" Header="元に戻す(_U)" Tag="元に戻す" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_319" Header="やり直し(_R)" Tag="やり直し" Click="MenuItem_Click" />
+                <MenuItem Header="页面编辑(_E)">
+                    <MenuItem Uid="MAIN_318" Header="撤销(_U)" Tag="撤销" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_319" Header="重做(_R)" Tag="重做" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="MAIN_320" Header="範囲選択(_S)" Tag="範囲選択" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_320" Header="范围选择(_S)" Tag="范围选择" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="MAIN_321" Header="切り取り(_T)" Tag="切り取り" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_322" Header="コピー(_C)" Tag="コピー" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_323" Header="貼り付け(_P)" Tag="貼り付け" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_324" Header="削除(_D)" Tag="削除" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_326" Header="全削除(_A)" Tag="全削除" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_321" Header="剪切(_T)" Tag="剪切" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_322" Header="复制(_C)" Tag="复制" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_323" Header="粘贴(_P)" Tag="粘贴" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_324" Header="删除(_D)" Tag="删除" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_326" Header="全部删除(_A)" Tag="全部删除" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="MAIN_325" Header="白紙ページ挿入(_B)" Tag="白紙ページ挿入" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_325" Header="插入空白页(_B)" Tag="插入空白页" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="MAIN_373" Header="検索(_F)..." Tag="検索" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_375" Header="ファイル追加(_I)..." Tag="ファイル追加" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_373" Header="查找(_F)..." Tag="查找" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_375" Header="添加文件(_I)..." Tag="添加文件" Click="MenuItem_Click" />
                 </MenuItem>
                 <Separator />
-                <MenuItem Uid="MAIN_218" Header="設定ファイルのインポート(_I)..." Tag="設定ファイルのインポート" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_219" Header="設定ファイルのエクスポート(_E)..." Tag="設定ファイルのエクスポート" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_218" Header="导入配置文件(_I)..." Tag="导入配置文件" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_219" Header="导出配置文件(_E)..." Tag="导出配置文件" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Uid="MAIN_40022" Header="クリップボードから貼り付け(_A)" Tag="クリップボードから貼り付け" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_40023" Header="クリップボードへコピー(_B)" Tag="クリップボードへコピー" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40022" Header="从剪贴板粘贴(_A)" Tag="从剪贴板粘贴" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40023" Header="复制到剪贴板(_B)" Tag="复制到剪贴板" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Uid="MAIN_40047" Header="ページ設定(_U)..." Tag="ページ設定" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_40048" Header="印刷(_P)..." Tag="印刷" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40047" Header="页面设置(_U)..." Tag="页面设置" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40048" Header="打印(_P)..." Tag="打印" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Uid="MAIN_127" Header="終了(_X)" Tag="終了" Click="ExitMenuItem_Click" />
+                <MenuItem Uid="MAIN_127" Header="退出(_X)" Tag="退出" Click="ExitMenuItem_Click" />
             </MenuItem>
-            <MenuItem Header="表示(_V)">
-                <MenuItem Uid="MAIN_40009" Header="１ページ表示" Tag="１ページ表示" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_40010" Header="２ページ表示" Tag="２ページ表示" Click="MenuItem_Click" />
-                <MenuItem Header="複数枚・連結表示(_M)">
-                    <MenuItem Uid="MAIN_40200" Header="横2枚表示 (標準見開き)" Tag="横2枚表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_40201" Header="縦2枚表示" Tag="縦2枚表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_40202" Header="横3枚表示" Tag="横3枚表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_40203" Header="縦3枚表示" Tag="縦3枚表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_40204" Header="横4枚表示" Tag="横4枚表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_40205" Header="縦4枚表示" Tag="縦4枚表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_40206" Header="縦横2×2枚表示 (4枚)" Tag="縦横2×2枚表示" Click="MenuItem_Click" />
+            <MenuItem Header="视图(_V)">
+                <MenuItem Uid="MAIN_40009" Header="单页显示" Tag="单页显示" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40010" Header="双页显示" Tag="双页显示" Click="MenuItem_Click" />
+                <MenuItem Header="多张·拼接显示(_M)">
+                    <MenuItem Uid="MAIN_40200" Header="横向 2 张显示 (标准跨页)" Tag="横向 2 张显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_40201" Header="纵向 2 张显示" Tag="纵向 2 张显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_40202" Header="横向 3 张显示" Tag="横向 3 张显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_40203" Header="纵向 3 张显示" Tag="纵向 3 张显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_40204" Header="横向 4 张显示" Tag="横向 4 张显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_40205" Header="纵向 4 张显示" Tag="纵向 4 张显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_40206" Header="2×2 网格显示 (4 张)" Tag="2×2 网格显示" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="MAIN_40210" Header="連結画像検出(_C)" Tag="連結画像検出" Click="MenuItem_Click" IsCheckable="True" />
+                    <MenuItem Uid="MAIN_40210" Header="拼接图像检测(_C)" Tag="拼接图像检测" Click="MenuItem_Click" IsCheckable="True" />
                 </MenuItem>
-                <MenuItem Header="見開き方向">
-                    <MenuItem Uid="MAIN_278" Header="左開き" Tag="左開き" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_279" Header="右開き" Tag="右開き" Click="MenuItem_Click" />
+                <MenuItem Header="跨页方向">
+                    <MenuItem Uid="MAIN_278" Header="左开" Tag="左开" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_279" Header="右开" Tag="右开" Click="MenuItem_Click" />
                 </MenuItem>
-                <MenuItem Header="原点(初期表示位置)">
-                    <MenuItem Uid="MAIN_312" Header="見開き方向依存" Tag="見開き方向依存" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_313" Header="センタリング(縦中央)" Tag="センタリング(縦中央)" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_314" Header="センタリング(横中央)" Tag="センタリング(横中央)" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_315" Header="センタリング(中心)" Tag="センタリング(中心)" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_316" Header="表示位置を保持" Tag="表示位置を保持" Click="MenuItem_Click" />
+                <MenuItem Header="原点(初始显示位置)">
+                    <MenuItem Uid="MAIN_312" Header="依跨页方向" Tag="依跨页方向" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_313" Header="居中(垂直中央)" Tag="居中(垂直中央)" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_314" Header="居中(水平中央)" Tag="居中(水平中央)" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_315" Header="居中(中心)" Tag="居中(中心)" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_316" Header="保持显示位置" Tag="保持显示位置" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="MAIN_342" Header="画像毎の表示位置を記録" Tag="画像毎の表示位置を記録" Click="MenuItem_Click" />
-                </MenuItem>
-                <Separator />
-                <MenuItem Uid="MAIN_131" Header="自動見開き表示" Tag="自動見開き表示" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_187" Header="自動単ページ表示(左右分割)" Tag="自動単ページ表示(左右分割)" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_256" Header="自動単ページ表示(上下分割)" Tag="自動単ページ表示(上下分割)" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_369" Header="自動表示設定..." Tag="自動表示設定" Click="MenuItem_Click" />
-                <Separator />
-                <MenuItem Uid="MAIN_40011" Header="サムネイル表示(1画面)" Tag="サムネイル表示(1画面)" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_40012" Header="サムネイル表示(8列)" Tag="サムネイル表示(8列)" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_40013" Header="サムネイル表示(カスタム)" Tag="サムネイル表示(カスタム)" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_40014" Header="表紙サムネイル" Tag="表紙サムネイル" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_231" Header="サムネイル設定..." Tag="サムネイル設定" Click="MenuItem_Click" />
-                <Separator />
-                <MenuItem Uid="MAIN_119" Header="フルスクリーン" Tag="フルスクリーン" Click="MenuItem_Click" />
-                <Separator />
-                <MenuItem Uid="MAIN_172" Header="ルーペ表示" Tag="ルーペ表示" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_40031" Header="ツールバー表示" Tag="ツールバー表示" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_175" Header="フォルダツリー表示" Tag="フォルダツリー表示" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_195" Header="ブックリスト表示" Tag="ブックリスト表示" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_261" Header="本棚表示" Tag="本棚表示" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_262" Header="目次表示" Tag="目次表示" Click="MenuItem_Click" />
-                <MenuItem Header="フルスクリーン時設定">
-                    <MenuItem Uid="MAIN_360" Header="各ペイン固定表示" Tag="各ペイン固定表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_361" Header="各ペインポップアップ表示" Tag="各ペインポップアップ表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_362" Header="各ペイン非表示" Tag="各ペイン非表示" Click="MenuItem_Click" />
-                    <Separator />
-                    <MenuItem Uid="MAIN_377" Header="ツールバー固定表示" Tag="ツールバー固定表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_378" Header="ツールバーポップアップ表示" Tag="ツールバーポップアップ表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_379" Header="ツールバー非表示" Tag="ツールバー非表示" Click="MenuItem_Click" />
-                    <Separator />
-                    <MenuItem Uid="MAIN_380" Header="メニュー固定表示" Tag="メニュー固定表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_381" Header="メニューポップアップ表示" Tag="メニューポップアップ表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_382" Header="メニュー非表示" Tag="メニュー非表示" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_342" Header="记录每张图的显示位置" Tag="记录每张图的显示位置" Click="MenuItem_Click" />
                 </MenuItem>
                 <Separator />
-                <MenuItem Uid="MAIN_269" Header="別ウインドウ表示" Tag="別ウインドウ表示" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_131" Header="自动跨页显示" Tag="自动跨页显示" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_187" Header="自动单页显示(左右分割)" Tag="自动单页显示(左右分割)" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_256" Header="自动单页显示(上下分割)" Tag="自动单页显示(上下分割)" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_369" Header="自动显示设置..." Tag="自动显示设置" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Uid="MAIN_40300" Header="OSDテキスト表示(_O)" Tag="OSDテキスト表示" Click="MenuItem_Click" IsCheckable="True" />
-                <MenuItem Uid="MAIN_40301" Header="マウスジェスチャーの軌跡表示(_G)" Tag="マウスジェスチャーの軌跡表示" Click="MenuItem_Click" IsCheckable="True" />
-                <MenuItem Uid="MAIN_40210" Header="連結画像検出(_C)" Tag="連結画像検出" Click="MenuItem_Click" IsCheckable="True" />
+                <MenuItem Uid="MAIN_40011" Header="缩略图显示(单屏)" Tag="缩略图显示(单屏)" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40012" Header="缩略图显示(8 列)" Tag="缩略图显示(8 列)" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40013" Header="缩略图显示(自定义)" Tag="缩略图显示(自定义)" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40014" Header="封面缩略图" Tag="封面缩略图" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_231" Header="缩略图设置..." Tag="缩略图设置" Click="MenuItem_Click" />
+                <Separator />
+                <MenuItem Uid="MAIN_119" Header="全屏" Tag="全屏" Click="MenuItem_Click" />
+                <Separator />
+                <MenuItem Uid="MAIN_172" Header="放大镜显示" Tag="放大镜显示" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40031" Header="工具栏显示" Tag="工具栏显示" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_175" Header="文件夹树显示" Tag="文件夹树显示" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_195" Header="书单显示" Tag="书单显示" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_261" Header="书架显示" Tag="书架显示" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_262" Header="目录显示" Tag="目录显示" Click="MenuItem_Click" />
+                <MenuItem Header="全屏时设置">
+                    <MenuItem Uid="MAIN_360" Header="各面板固定显示" Tag="各面板固定显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_361" Header="各面板弹出显示" Tag="各面板弹出显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_362" Header="隐藏各面板" Tag="隐藏各面板" Click="MenuItem_Click" />
+                    <Separator />
+                    <MenuItem Uid="MAIN_377" Header="工具栏固定显示" Tag="工具栏固定显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_378" Header="工具栏弹出显示" Tag="工具栏弹出显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_379" Header="隐藏工具栏" Tag="隐藏工具栏" Click="MenuItem_Click" />
+                    <Separator />
+                    <MenuItem Uid="MAIN_380" Header="菜单固定显示" Tag="菜单固定显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_381" Header="菜单弹出显示" Tag="菜单弹出显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_382" Header="隐藏菜单" Tag="隐藏菜单" Click="MenuItem_Click" />
+                </MenuItem>
+                <Separator />
+                <MenuItem Uid="MAIN_269" Header="独立窗口显示" Tag="独立窗口显示" Click="MenuItem_Click" />
+                <Separator />
+                <MenuItem Uid="MAIN_40300" Header="OSD 文本显示(_O)" Tag="OSD 文本显示" Click="MenuItem_Click" IsCheckable="True" />
+                <MenuItem Uid="MAIN_40301" Header="显示鼠标手势轨迹(_G)" Tag="显示鼠标手势轨迹" Click="MenuItem_Click" IsCheckable="True" />
+                <MenuItem Uid="MAIN_40210" Header="拼接图像检测(_C)" Tag="拼接图像检测" Click="MenuItem_Click" IsCheckable="True" />
             </MenuItem>
-            <MenuItem Header="スケールモード(_S)">
-                <MenuItem Uid="MAIN_40101" Header="縦横どちらか合わせる" Tag="縦横どちらか合わせる" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_40102" Header="ウインドウサイズに合わせる" Tag="ウインドウサイズに合わせる" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_40103" Header="原寸サイズで表示" Tag="原寸サイズで表示" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_40104" Header="画像サイズに合わせる" Tag="画像サイズに合わせる" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_40106" Header="縦サイズを揃える(2ページ表示用)" Tag="縦サイズを揃える(2ページ表示用)" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_40105" Header="指定スケール、サイズで表示" Tag="指定スケール、サイズで表示" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_40100" Header="倍率固定(デフォルト)" Tag="倍率固定(デフォルト)" Click="MenuItem_Click" />
+            <MenuItem Header="缩放模式(_S)">
+                <MenuItem Uid="MAIN_40101" Header="适应宽或高" Tag="适应宽或高" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40102" Header="适应窗口大小" Tag="适应窗口大小" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40103" Header="按原始尺寸显示" Tag="按原始尺寸显示" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40104" Header="适应图像大小" Tag="适应图像大小" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40106" Header="统一高度(用于双页显示)" Tag="统一高度(用于双页显示)" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40105" Header="按指定倍率/尺寸显示" Tag="按指定倍率/尺寸显示" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40100" Header="固定倍率(默认)" Tag="固定倍率(默认)" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Uid="MAIN_40107" Header="縮小はするが拡大はしない" Tag="縮小はするが拡大はしない" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40107" Header="只缩小不放大" Tag="只缩小不放大" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Uid="MAIN_351" Header="拡縮処理にHALFTONEフィルタを使う(_Z)" Tag="拡縮処理にHALFTONEフィルタを使う" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_352" Header="拡縮処理に平均画素法を使う(_X)" Tag="拡縮処理に平均画素法を使う" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_353" Header="拡縮処理にLanczosフィルタを使う(_C)" Tag="拡縮処理にLanczosフィルタを使う" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_354" Header="拡縮処理に３次補間(バイキュービック)を使う(_V)" Tag="拡縮処理に３次補間(バイキュービック)を使う" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_355" Header="拡縮処理に線形補間を使う(_B)" Tag="拡縮処理に線形補間を使う" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_356" Header="拡縮処理に平均画素法+シャープネス弱(_N)" Tag="拡縮処理に平均画素法+シャープネス弱" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_357" Header="拡縮処理に平均画素法+シャープネス強(_M)" Tag="拡縮処理に平均画素法+シャープネス強" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_351" Header="缩放使用 HALFTONE 滤镜(_Z)" Tag="缩放使用 HALFTONE 滤镜" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_352" Header="缩放使用平均像素法(_X)" Tag="缩放使用平均像素法" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_353" Header="缩放使用 Lanczos 滤镜(_C)" Tag="缩放使用 Lanczos 滤镜" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_354" Header="缩放使用三次插值(双三次)(_V)" Tag="缩放使用三次插值(双三次)" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_355" Header="缩放使用线性插值(_B)" Tag="缩放使用线性插值" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_356" Header="缩放使用平均像素法+弱锐化(_N)" Tag="缩放使用平均像素法+弱锐化" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_357" Header="缩放使用平均像素法+强锐化(_M)" Tag="缩放使用平均像素法+强锐化" Click="MenuItem_Click" />
             </MenuItem>
-            <MenuItem Header="移動(_J)">
-                <MenuItem Uid="MAIN_143" Header="次に進む" Tag="次に進む" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_144" Header="1ページだけ進む" Tag="1ページだけ進む" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_145" Header="10ページ進む" Tag="10ページ進む" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_146" Header="20ページ進む" Tag="20ページ進む" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_147" Header="50ページ進む" Tag="50ページ進む" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_148" Header="最終ページへ" Tag="最終ページへ" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_190" Header="次のサブフォルダへ" Tag="次のサブフォルダへ" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_188" Header="次のフォルダ(書庫)へ" Tag="次のフォルダ(書庫)へ" Click="MenuItem_Click" />
+            <MenuItem Header="跳转(_J)">
+                <MenuItem Uid="MAIN_143" Header="下一页" Tag="下一页" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_144" Header="前进 1 页" Tag="前进 1 页" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_145" Header="前进 10 页" Tag="前进 10 页" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_146" Header="前进 20 页" Tag="前进 20 页" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_147" Header="前进 50 页" Tag="前进 50 页" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_148" Header="跳到最后一页" Tag="跳到最后一页" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_190" Header="下一个子文件夹" Tag="下一个子文件夹" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_188" Header="下一个文件夹(压缩包)" Tag="下一个文件夹(压缩包)" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Uid="MAIN_149" Header="前に戻る" Tag="前に戻る" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_150" Header="1ページだけ戻す" Tag="1ページだけ戻す" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_151" Header="10ページ戻る" Tag="10ページ戻る" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_152" Header="20ページ戻る" Tag="20ページ戻る" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_153" Header="50ページ戻る" Tag="50ページ戻る" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_154" Header="最初のページへ" Tag="最初のページへ" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_191" Header="前のサブフォルダへ" Tag="前のサブフォルダへ" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_189" Header="前のフォルダ(書庫)へ" Tag="前のフォルダ(書庫)へ" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_149" Header="上一页" Tag="上一页" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_150" Header="后退 1 页" Tag="后退 1 页" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_151" Header="后退 10 页" Tag="后退 10 页" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_152" Header="后退 20 页" Tag="后退 20 页" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_153" Header="后退 50 页" Tag="后退 50 页" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_154" Header="跳到第一页" Tag="跳到第一页" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_191" Header="上一个子文件夹" Tag="上一个子文件夹" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_189" Header="上一个文件夹(压缩包)" Tag="上一个文件夹(压缩包)" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Uid="MAIN_272" Header="上のフォルダへ(表紙サムネイル)" Tag="上のフォルダへ(表紙サムネイル)" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_272" Header="返回上级文件夹(封面缩略图)" Tag="返回上级文件夹(封面缩略图)" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Uid="MAIN_155" Header="指定ページへ" Tag="指定ページへ" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_160" Header="ファイルビュー" Tag="ファイルビュー" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_155" Header="跳转到指定页" Tag="跳转到指定页" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_160" Header="文件视图" Tag="文件视图" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Uid="MAIN_40310" Header="クリエイターの先頭へ(_H)" InputGestureText="Ctrl+Home" Tag="クリエイターの先頭へ" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_40311" Header="クリエイターの最後尾へ(_E)" InputGestureText="Ctrl+End" Tag="クリエイターの最後尾へ" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40310" Header="跳到创作者首位(_H)" InputGestureText="Ctrl+Home" Tag="跳到创作者首位" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40311" Header="跳到创作者末位(_E)" InputGestureText="Ctrl+End" Tag="跳到创作者末位" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Uid="MAIN_305" Header="非リピート" Tag="非リピート" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_306" Header="リピート" Tag="リピート" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_307" Header="フォルダ移動自動式" Tag="フォルダ移動自動式" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_305" Header="不循环" Tag="不循环" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_306" Header="循环" Tag="循环" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_307" Header="自动切换文件夹" Tag="自动切换文件夹" Click="MenuItem_Click" />
             </MenuItem>
-            <MenuItem Header="ブックリスト(_B)">
-                <MenuItem Uid="MAIN_195" Header="表示" Tag="表示" Click="MenuItem_Click" />
+            <MenuItem Header="书单(_B)">
+                <MenuItem Uid="MAIN_195" Header="显示" Tag="显示" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Uid="MAIN_198" Header="マーキング" Tag="マーキング" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_202" Header="マーカーに移動" Tag="マーカーに移動" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_350" Header="目次の追加/削除(_C)" Tag="目次の追加/削除" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_200" Header="お気に入りに登録" Tag="お気に入りに登録" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_251" Header="表紙登録..." Tag="表紙登録" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_245" Header="背表紙登録..." Tag="背表紙登録" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_198" Header="标记" Tag="标记" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_202" Header="跳转到标记" Tag="跳转到标记" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_350" Header="添加/删除目录(_C)" Tag="添加/删除目录" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_200" Header="加入收藏" Tag="加入收藏" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_251" Header="登记封面..." Tag="登记封面" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_245" Header="登记书脊..." Tag="登记书脊" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Uid="MAIN_228" Header="プレイリスト再生" Tag="プレイリスト再生" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_230" Header="プレイリスト逆再生" Tag="プレイリスト逆再生" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_226" Header="プレイリスト再生設定..." Tag="プレイリスト再生設定" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_228" Header="播放列表正序播放" Tag="播放列表正序播放" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_230" Header="播放列表倒序播放" Tag="播放列表倒序播放" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_226" Header="播放列表播放设置..." Tag="播放列表播放设置" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Header="リストサムネイル表示">
-                    <MenuItem Uid="MAIN_40120" Header="プレイリスト: 1画面内" Tag="プレイリスト: 1画面内" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_40121" Header="プレイリスト: 8列表示" Tag="プレイリスト: 8列表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_40122" Header="プレイリスト: カスタム" Tag="プレイリスト: カスタム" Click="MenuItem_Click" />
+                <MenuItem Header="列表缩略图显示">
+                    <MenuItem Uid="MAIN_40120" Header="播放列表: 单屏内" Tag="播放列表: 单屏内" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_40121" Header="播放列表: 8 列显示" Tag="播放列表: 8 列显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_40122" Header="播放列表: 自定义" Tag="播放列表: 自定义" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="MAIN_40124" Header="お気に入り: 1画面内" Tag="お気に入り: 1画面内" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_40125" Header="お気に入り: 8列表示" Tag="お気に入り: 8列表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_40126" Header="お気に入り: カスタム" Tag="お気に入り: カスタム" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_40124" Header="收藏: 单屏内" Tag="收藏: 单屏内" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_40125" Header="收藏: 8 列显示" Tag="收藏: 8 列显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_40126" Header="收藏: 自定义" Tag="收藏: 自定义" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="MAIN_40128" Header="履歴: 1画面内" Tag="履歴: 1画面内" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_40129" Header="履歴: 8列表示" Tag="履歴: 8列表示" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_40130" Header="履歴: カスタム" Tag="履歴: カスタム" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_40128" Header="历史: 单屏内" Tag="历史: 单屏内" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_40129" Header="历史: 8 列显示" Tag="历史: 8 列显示" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_40130" Header="历史: 自定义" Tag="历史: 自定义" Click="MenuItem_Click" />
                     <Separator />
-                    <MenuItem Uid="MAIN_231" Header="サムネイル設定..." Tag="サムネイル設定" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_231" Header="缩略图设置..." Tag="缩略图设置" Click="MenuItem_Click" />
                 </MenuItem>
                 <Separator />
-                <MenuItem Uid="MAIN_201" Header="履歴リスト有効" Tag="履歴リスト有効" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_201" Header="启用历史列表" Tag="启用历史列表" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Uid="MAIN_214" Header="プレイリスト保存..." Tag="プレイリスト保存" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_215" Header="お気に入り保存..." Tag="お気に入り保存" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_216" Header="履歴の保存..." Tag="履歴の保存" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_214" Header="保存播放列表..." Tag="保存播放列表" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_215" Header="保存收藏..." Tag="保存收藏" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_216" Header="保存历史..." Tag="保存历史" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Uid="MAIN_212" Header="履歴クリア" Tag="履歴クリア" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_213" Header="お気に入りクリア" Tag="お気に入りクリア" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_212" Header="清空历史" Tag="清空历史" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_213" Header="清空收藏" Tag="清空收藏" Click="MenuItem_Click" />
             </MenuItem>
-            <MenuItem Header="ツール(_T)">
-                <MenuItem Uid="MAIN_40019" Header="ファイル先読み(_A)" Tag="ファイル先読み" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_40020" Header="全ファイル一括ロード(_B)" Tag="全ファイル一括ロード" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_173" Header="ページエフェクト有効(_V)" Tag="ページエフェクト有効" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_0" Header="オーバーレイ表示(_O)" Tag="オーバーレイ表示" Click="MenuItem_Click" />
+            <MenuItem Header="工具(_T)">
+                <MenuItem Uid="MAIN_40019" Header="文件预加载(_A)" Tag="文件预加载" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40020" Header="一次性加载全部文件(_B)" Tag="一次性加载全部文件" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_173" Header="启用翻页特效(_V)" Tag="启用翻页特效" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_0" Header="叠加层显示(_O)" Tag="叠加层显示" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Header="ファイルソート(_S)">
-                    <MenuItem Uid="MAIN_400" Header="パス" Tag="パス" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_401" Header="パス(逆順)" Tag="パス(逆順)" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_402" Header="ファイル名" Tag="ファイル名" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_403" Header="ファイル名(逆順)" Tag="ファイル名(逆順)" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_404" Header="種類" Tag="種類" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_405" Header="種類(逆順)" Tag="種類(逆順)" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_406" Header="サイズ" Tag="サイズ" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_407" Header="サイズ(逆順)" Tag="サイズ(逆順)" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_408" Header="更新日時" Tag="更新日時" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_409" Header="更新日時(逆順)" Tag="更新日時(逆順)" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_410" Header="ランダム" Tag="ランダム" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_411" Header="パス[数字順]" Tag="パス[数字順]" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_412" Header="パス[数字順]（逆順)" Tag="パス[数字順]（逆順)" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_413" Header="パス[文字順]" Tag="パス[文字順]" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_414" Header="パス[文字順]（逆順)" Tag="パス[文字順]（逆順)" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_415" Header="エントリ順" Tag="エントリ順" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_416" Header="エントリ(逆順)" Tag="エントリ(逆順)" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_417" Header="パス[UNICODE順]" Tag="パス[UNICODE順]" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_418" Header="パス[UNICODE順](逆順)" Tag="パス[UNICODE順](逆順)" Click="MenuItem_Click" />
+                <MenuItem Header="文件排序(_S)">
+                    <MenuItem Uid="MAIN_400" Header="路径" Tag="路径" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_401" Header="路径(倒序)" Tag="路径(倒序)" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_402" Header="文件名" Tag="文件名" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_403" Header="文件名(倒序)" Tag="文件名(倒序)" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_404" Header="类型" Tag="类型" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_405" Header="类型(倒序)" Tag="类型(倒序)" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_406" Header="大小" Tag="大小" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_407" Header="大小(倒序)" Tag="大小(倒序)" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_408" Header="修改时间" Tag="修改时间" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_409" Header="修改时间(倒序)" Tag="修改时间(倒序)" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_410" Header="随机" Tag="随机" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_411" Header="路径[数字顺序]" Tag="路径[数字顺序]" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_412" Header="路径[数字顺序](倒序)" Tag="路径[数字顺序](倒序)" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_413" Header="路径[文字顺序]" Tag="路径[文字顺序]" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_414" Header="路径[文字顺序](倒序)" Tag="路径[文字顺序](倒序)" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_415" Header="条目顺序" Tag="条目顺序" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_416" Header="条目(倒序)" Tag="条目(倒序)" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_417" Header="路径[UNICODE 顺序]" Tag="路径[UNICODE 顺序]" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_418" Header="路径[UNICODE 顺序](倒序)" Tag="路径[UNICODE 顺序](倒序)" Click="MenuItem_Click" />
                 </MenuItem>
-                <MenuItem Header="フォルダソート(_S)">
-                    <MenuItem Uid="MAIN_344" Header="エクスプローラ名前順" Tag="エクスプローラ名前順" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_345" Header="数字順" Tag="数字順" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_346" Header="UNICODE順" Tag="UNICODE順" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_347" Header="ランダム" Tag="ランダム" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_348" Header="サイズ順" Tag="サイズ順" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_349" Header="更新日時順" Tag="更新日時順" Click="MenuItem_Click" />
+                <MenuItem Header="文件夹排序(_S)">
+                    <MenuItem Uid="MAIN_344" Header="资源管理器名称顺序" Tag="资源管理器名称顺序" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_345" Header="数字顺序" Tag="数字顺序" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_346" Header="UNICODE 顺序" Tag="UNICODE 顺序" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_347" Header="随机" Tag="随机" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_348" Header="大小顺序" Tag="大小顺序" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_349" Header="修改时间顺序" Tag="修改时间顺序" Click="MenuItem_Click" />
                 </MenuItem>
                 <Separator />
-                <MenuItem Uid="MAIN_300" Header="Avisynthフィルタ有効(_F)" Tag="Avisynthフィルタ有効" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_301" Header="Avisynthフィルタ設定(_G)..." Tag="Avisynthフィルタ設定" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_164" Header="Avisynthフィルタの先読み(_W)" Tag="Avisynthフィルタの先読み" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_371" Header="Avisynthフィルタ設定をログ出力(_L)" Tag="Avisynthフィルタ設定をログ出力" Click="MenuItem_Click" />
-                <MenuItem Header="Avisynthフィルタプロファイル(_P)">
+                <MenuItem Uid="MAIN_300" Header="启用 Avisynth 滤镜(_F)" Tag="启用 Avisynth 滤镜" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_301" Header="Avisynth 滤镜设置(_G)..." Tag="Avisynth 滤镜设置" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_164" Header="Avisynth 滤镜预加载(_W)" Tag="Avisynth 滤镜预加载" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_371" Header="将 Avisynth 滤镜设置输出到日志(_L)" Tag="将 Avisynth 滤镜设置输出到日志" Click="MenuItem_Click" />
+                <MenuItem Header="Avisynth 滤镜配置文件(_P)">
                     <MenuItem Uid="MAIN_500" Header="profile" Tag="profile" Click="MenuItem_Click" />
                 </MenuItem>
                 <Separator />
-                <MenuItem Header="操作設定(_M)">
-                    <MenuItem Uid="MAIN_333" Header="キーボード(_K)..." Tag="キーボード" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_334" Header="マウス(_M)..." Tag="マウス" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_335" Header="パッド(_P)..." Tag="パッド" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_336" Header="ツールバー(_T)..." Tag="ツールバー" Click="MenuItem_Click" />
-                    <MenuItem Uid="MAIN_337" Header="コマンド(_C)..." Tag="コマンド" Click="MenuItem_Click" />
+                <MenuItem Header="操作设置(_M)">
+                    <MenuItem Uid="MAIN_333" Header="键盘(_K)..." Tag="键盘" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_334" Header="鼠标(_M)..." Tag="鼠标" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_335" Header="手柄(_P)..." Tag="手柄" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_336" Header="工具栏(_T)..." Tag="工具栏" Click="MenuItem_Click" />
+                    <MenuItem Uid="MAIN_337" Header="命令(_C)..." Tag="命令" Click="MenuItem_Click" />
                 </MenuItem>
-                <MenuItem Uid="MAIN_341" Header="レジストリ関連設定(_R)..." Tag="レジストリ関連設定" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_124" Header="環境設定(_C)..." Tag="環境設定" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_341" Header="注册表相关设置(_R)..." Tag="注册表相关设置" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_124" Header="设置(_C)..." Tag="设置" Click="MenuItem_Click" />
             </MenuItem>
-            <MenuItem Header="ヘルプ(_H)">
-                <MenuItem Header="マニュアル・操作説明(_M)..." InputGestureText="F1" Click="HelpManualMenuItem_Click" />
+            <MenuItem Header="帮助(_H)">
+                <MenuItem Header="使用手册·操作说明(_M)..." InputGestureText="F1" Click="HelpManualMenuItem_Click" />
                 <Separator />
-                <MenuItem Uid="MAIN_114" Header="画像情報(_I)..." Tag="画像情報" Click="MenuItem_Click" />
-                <MenuItem Uid="MAIN_40004" Header="キャッシュ情報(_C)..." Tag="キャッシュ情報" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_114" Header="图像信息(_I)..." Tag="图像信息" Click="MenuItem_Click" />
+                <MenuItem Uid="MAIN_40004" Header="缓存信息(_C)..." Tag="缓存信息" Click="MenuItem_Click" />
                 <Separator />
-                <MenuItem Uid="MAIN_115" Header="バージョン情報(_V)..." Tag="バージョン情報" Click="VersionMenuItem_Click" />
+                <MenuItem Uid="MAIN_115" Header="版本信息(_V)..." Tag="版本信息" Click="VersionMenuItem_Click" />
             </MenuItem>
         </Menu>
     </Grid>

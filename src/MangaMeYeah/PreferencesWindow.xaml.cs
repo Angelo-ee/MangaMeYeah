@@ -217,12 +217,12 @@ public partial class PreferencesWindow : Window
         if (PreloadPriorityLabel == null) return;
         PreloadPriorityLabel.Text = priority switch
         {
-            0 => "(最低: UI最優先・CPU負荷抑制)",
-            1 => "(やや低)",
-            2 => "(通常: デフォルト)",
-            3 => "(やや高)",
-            4 => "(最高: 先読み最優先)",
-            _ => "(通常)"
+            0 => "(最低: UI 优先·降低 CPU 负载)",
+            1 => "(较低)",
+            2 => "(普通: 默认)",
+            3 => "(较高)",
+            4 => "(最高: 预加载优先)",
+            _ => "(普通)"
         };
     }
 
@@ -278,7 +278,7 @@ public partial class PreferencesWindow : Window
     {
         var dlg = new OpenFolderDialog
         {
-            Title = "初期フォルダを選択"
+            Title = "选择初始文件夹"
         };
         if (Directory.Exists(InitialFolderTextBox.Text))
         {

@@ -1,7 +1,7 @@
 <Window x:Class="MangaMeYeah.RegistrySettingsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="レジストリ関連設定"
+        Title="注册表相关设置"
         Width="480"
         Height="250"
         WindowStartupLocation="CenterOwner"
@@ -16,40 +16,40 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0"
-                   Text="エクスプローラーの右クリックメニューに「MangaMeYeah!で開く」を追加・削除します。"
+                   Text="在资源管理器右键菜单中添加或删除「用 MangaMeYeah! 打开」。"
                    Margin="0,0,0,12" />
 
-        <GroupBox Grid.Row="1" Header="エクスプローラー右クリックメニュー連携 (HKCU)" Padding="10,8">
+        <GroupBox Grid.Row="1" Header="资源管理器右键菜单集成 (HKCU)" Padding="10,8">
             <StackPanel>
                 <CheckBox x:Name="FolderMenuCheckBox"
-                          Content="フォルダの右クリックメニューに「MangaMeYeah!で開く」を追加"
+                          Content="在文件夹右键菜单中添加「用 MangaMeYeah! 打开」"
                           IsChecked="True"
                           Margin="0,4,0,8" />
                 <CheckBox x:Name="FolderBgMenuCheckBox"
-                          Content="フォルダ背景(空白部)の右クリックに「このフォルダをMangaMeYeah!で開く」を追加"
+                          Content="在文件夹背景(空白处)右键中添加「用 MangaMeYeah! 打开此文件夹」"
                           IsChecked="True"
                           Margin="0,0,0,8" />
                 <CheckBox x:Name="FileMenuCheckBox"
-                          Content="ファイルの右クリックメニューに「MangaMeYeah!で開く」を追加"
+                          Content="在文件右键菜单中添加「用 MangaMeYeah! 打开」"
                           IsChecked="True"
                           Margin="0,0,0,4" />
             </StackPanel>
         </GroupBox>
 
         <DockPanel Grid.Row="2" Margin="0,12,0,0">
-            <Button Content="すべてクリア (解除)"
+            <Button Content="全部清除 (解除)"
                     DockPanel.Dock="Left"
                     Width="130"
                     Height="26"
                     Click="ClearAllButton_Click" />
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Content="登録・更新 (OK)"
+                <Button Content="注册·更新 (OK)"
                         Width="110"
                         Height="26"
                         IsDefault="True"
                         Margin="0,0,8,0"
                         Click="OkButton_Click" />
-                <Button Content="キャンセル"
+                <Button Content="取消"
                         Width="85"
                         Height="26"
                         IsCancel="True"

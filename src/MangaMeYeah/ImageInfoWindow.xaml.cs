@@ -114,20 +114,20 @@ public partial class ImageInfoWindow : Window
         double scalePct = slot.Entry.OriginalHeight > 0
             ? (double)slot.DisplayedHeight / slot.Entry.OriginalHeight * 100.0
             : 100.0;
-        string otherInfo = $"ページ: {slot.PageNumber} / {slot.TotalPages}\r\n表示倍率: {scalePct:F1}%";
+        string otherInfo = $"页码: {slot.PageNumber} / {slot.TotalPages}\r\n显示倍率: {scalePct:F1}%";
 
         (string Label, string Value)[] rows =
         [
-            ("ファイル名", fi.Name),
-            ("パス", fi.DirectoryName ?? string.Empty),
-            ("ファイルサイズ", $"{fileSizeBytes:N0} [byte]"),
-            ("更新日時", updateTimeStr),
-            ("原寸サイズ", origSizeStr),
-            ("フィルタ後サイズ", "-"),
-            ("表示サイズ", dispSizeStr),
-            ("キャッシュサイズ", cacheSizeStr),
-            ("ロード時間", loadTimeStr),
-            ("使用色数", colorCountStr)
+            ("文件名", fi.Name),
+            ("路径", fi.DirectoryName ?? string.Empty),
+            ("文件大小", $"{fileSizeBytes:N0} [byte]"),
+            ("修改时间", updateTimeStr),
+            ("原始尺寸", origSizeStr),
+            ("滤镜后尺寸", "-"),
+            ("显示尺寸", dispSizeStr),
+            ("缓存大小", cacheSizeStr),
+            ("加载时间", loadTimeStr),
+            ("使用颜色数", colorCountStr)
         ];
 
         var tableGrid = new Grid
@@ -200,7 +200,7 @@ public partial class ImageInfoWindow : Window
         };
         otherLabelCell.Child = new TextBlock
         {
-            Text = "その他",
+            Text = "其他",
             FontSize = 12,
             Foreground = Brushes.Black,
             VerticalAlignment = VerticalAlignment.Center,

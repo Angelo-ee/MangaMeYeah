@@ -26,7 +26,7 @@ public partial class RegistrySettingsWindow : Window
         StatusMessage = msg;
         if (!success)
         {
-            MessageBox.Show(this, msg, "エラー", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(this, msg, "错误", MessageBoxButton.OK, MessageBoxImage.Error);
             return;
         }
 
@@ -48,7 +48,7 @@ public partial class RegistrySettingsWindow : Window
         }
         else
         {
-            MessageBox.Show(this, msg, "エラー", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(this, msg, "错误", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 

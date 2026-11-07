@@ -42,14 +42,14 @@ public static class ExplorerContextMenuService
         string exePath = GetExecutablePath();
         if (string.IsNullOrEmpty(exePath))
         {
-            return (false, "実行ファイルのパスが取得できませんでした。");
+            return (false, "无法获取可执行文件路径。");
         }
 
         try
         {
             if (includeFolder)
             {
-                RegisterShellEntry(FolderShellKey, "MangaMeYeah!で開く(&M)", exePath, $"\"{exePath}\" \"%1\"");
+                RegisterShellEntry(FolderShellKey, "用 MangaMeYeah! 打开(&M)", exePath, $"\"{exePath}\" \"%1\"");
             }
             else
             {
@@ -58,7 +58,7 @@ public static class ExplorerContextMenuService
 
             if (includeFolderBackground)
             {
-                RegisterShellEntry(FolderBgShellKey, "このフォルダをMangaMeYeah!で開く(&M)", exePath, $"\"{exePath}\" \"%V\"");
+                RegisterShellEntry(FolderBgShellKey, "用 MangaMeYeah! 打开此文件夹(&M)", exePath, $"\"{exePath}\" \"%V\"");
             }
             else
             {
@@ -67,18 +67,18 @@ public static class ExplorerContextMenuService
 
             if (includeFiles)
             {
-                RegisterShellEntry(FileShellKey, "MangaMeYeah!で開く(&M)", exePath, $"\"{exePath}\" \"%1\"");
+                RegisterShellEntry(FileShellKey, "用 MangaMeYeah! 打开(&M)", exePath, $"\"{exePath}\" \"%1\"");
             }
             else
             {
                 Registry.CurrentUser.DeleteSubKeyTree(FileShellKey, throwOnMissingSubKey: false);
             }
 
-            return (true, "エクスプローラーの右クリックメニュー設定を更新しました。");
+            return (true, "已更新资源管理器右键菜单设置。");
         }
         catch (Exception ex)
         {
-            return (false, $"レジストリ更新エラー: {ex.Message}");
+            return (false, $"注册表更新错误: {ex.Message}");
         }
     }
 
@@ -89,11 +89,11 @@ public static class ExplorerContextMenuService
             Registry.CurrentUser.DeleteSubKeyTree(FolderShellKey, throwOnMissingSubKey: false);
             Registry.CurrentUser.DeleteSubKeyTree(FolderBgShellKey, throwOnMissingSubKey: false);
             Registry.CurrentUser.DeleteSubKeyTree(FileShellKey, throwOnMissingSubKey: false);
-            return (true, "エクスプローラーの右クリックメニューから「MangaMeYeah!で開く」をすべて削除しました。");
+            return (true, "已从资源管理器右键菜单中删除全部「用 MangaMeYeah! 打开」。");
         }
         catch (Exception ex)
         {
-            return (false, $"レジストリ削除エラー: {ex.Message}");
+            return (false, $"注册表删除错误: {ex.Message}");
         }
     }
 

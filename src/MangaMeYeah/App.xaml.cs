@@ -18,7 +18,7 @@ public partial class App : Application
     {
         DispatcherUnhandledException += (s, args) =>
         {
-            MessageBox.Show($"予期せぬエラーが発生しました:\n{args.Exception.Message}\n\n{args.Exception.StackTrace}", "MangaMeYeah エラー", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show($"发生意外错误:\n{args.Exception.Message}\n\n{args.Exception.StackTrace}", "MangaMeYeah 错误", MessageBoxButton.OK, MessageBoxImage.Error);
             args.Handled = true;
         };
 
