@@ -3072,7 +3072,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         e.Handled = true;
     }
 
-    private const string HelpOnlineUrl = "https://github.com/emmmanime/MangaMeYeah/blob/main/docs/help/index.md";
+    private const string HelpOnlineUrl = "https://github.com/Angelo-ee/MangaMeYeah/blob/main/docs/help/index.md";
 
     private void OpenHelpManual()
     {
